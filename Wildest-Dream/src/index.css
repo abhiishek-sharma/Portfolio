@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-cyber-blue: #00d4ff;
+  --color-cyber-purple: #8b5cf6;
+  --color-cyber-pink: #ff006e;
+  --color-cyber-yellow: #ffd60a;
+  --color-cyber-green: #00ff88;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #030305;
+  color: white;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+canvas {
+  cursor: crosshair;
+}
+
+.glitch-text {
+  animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: none;
+  }
+
+  90% {
+    text-shadow: none;
+  }
+
+  92% {
+    text-shadow: -2px 0 #00d4ff, 2px 0 #ff006e;
+  }
+
+  94% {
+    text-shadow: none;
+  }
+
+  96% {
+    text-shadow: 2px 0 #00d4ff, -2px 0 #ff006e;
+  }
+
+  98% {
+    text-shadow: none;
+  }
+
+  100% {
+    text-shadow: none;
+  }
+}
+
+.glass-panel {
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+}
