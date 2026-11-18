@@ -25,9 +25,6 @@ const Projects = () => {
             <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6 }}
                     className="text-center mb-12"
                 >
                     <p className="font-mono text-[#ff006e] text-sm uppercase tracking-widest mb-3">04 / Projects</p>
@@ -37,9 +34,6 @@ const Projects = () => {
 
                 {/* Filter */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : {}}
-                    transition={{ delay: 0.3 }}
                     className="flex flex-wrap justify-center gap-3 mb-12"
                 >
                     {categories.map((cat) => (
@@ -167,9 +161,6 @@ const Projects = () => {
 
                 {/* GitHub CTA */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.8 }}
                     className="text-center mt-12"
                 >
                     <a

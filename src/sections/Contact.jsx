@@ -72,8 +72,6 @@ const Contact = () => {
             <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
                     className="text-center mb-16"
                 >
                     <p className="font-mono text-[#00d4ff] text-sm uppercase tracking-widest mb-3">06 / Contact</p>
@@ -87,9 +85,7 @@ const Contact = () => {
                 <div className="grid lg:grid-cols-2 gap-12">
                     {/* Left: Contact Info */}
                     <motion.div
-                        initial={{ opacity: 0, x: -40 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: 0.2 }}
+                        data-anim="from-left"
                         className="space-y-6"
                     >
                         <div className="glass rounded-2xl p-6 border border-white/5 space-y-5">
@@ -153,11 +149,7 @@ const Contact = () => {
                     </motion.div>
 
                     {/* Right: Contact Form */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 40 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: 0.3 }}
-                    >
+                    <motion.div data-anim="from-right">
                         <div className="terminal-window">
                             <div className="terminal-header">
                                 <div className="terminal-dot bg-red-500" />

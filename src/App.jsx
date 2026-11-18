@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { startSmoothScroll, scrollToSection } from "./lib/smoothScroll";
+import { startScrollAnimations } from "./lib/scrollAnimations";
 
 // Sections
 import Hero from "./sections/Hero";
@@ -124,7 +125,12 @@ function App() {
   // Smooth scrolling (Lenis + GSAP ticker) once the loader is gone
   useEffect(() => {
     if (loading) return undefined;
-    return startSmoothScroll();
+    const stopScroll = startSmoothScroll();
+    const stopAnimations = startScrollAnimations();
+    return () => {
+      stopAnimations();
+      stopScroll();
+    };
   }, [loading]);
 
   return (
@@ -138,6 +144,9 @@ function App() {
         <>
           {/* Noise texture (subtle) */}
           <div className="noise-overlay" />
+
+          {/* Scroll progress (driven by GSAP ScrollTrigger) */}
+          <div id="scroll-progress" className="fixed top-0 left-0 right-0 h-0.5 bg-[#00d4ff] origin-left scale-x-0 z-[60] pointer-events-none" />
 
           {/* Navigation */}
           <Navbar />

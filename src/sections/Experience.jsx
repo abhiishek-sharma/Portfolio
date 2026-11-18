@@ -25,9 +25,6 @@ const Experience = () => {
             <div ref={ref} className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
                     <p className="font-mono text-[#00ff88] text-sm uppercase tracking-widest mb-3">03 / Experience</p>
@@ -49,9 +46,6 @@ const Experience = () => {
                         return (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 40 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                                transition={{ duration: 0.6, delay: index * 0.15 }}
                                 className="relative mb-12"
                             >
                                 {/* Timeline node */}

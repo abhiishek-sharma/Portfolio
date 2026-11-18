@@ -21,9 +21,6 @@ const About = () => {
             <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
                     <p className="font-mono text-[#00d4ff] text-sm uppercase tracking-widest mb-3">01 / About</p>
@@ -33,11 +30,7 @@ const About = () => {
 
                 <div className="grid lg:grid-cols-2 gap-16 items-start">
                     {/* Left: Info */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.7, delay: 0.2 }}
-                    >
+                    <motion.div data-anim="from-left">
                         {/* Terminal-style heading */}
                         <div className="font-mono text-sm text-gray-600 mb-4">
                             <span className="text-[#00ff88]">~/portfolio</span>
@@ -95,9 +88,6 @@ const About = () => {
 
                     {/* Right: Stats + Code block */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.7, delay: 0.4 }}
                         className="space-y-6"
                     >
                         {/* Stats Grid */}
@@ -105,9 +95,6 @@ const About = () => {
                             {statItems.map((stat, i) => (
                                 <motion.div
                                     key={stat.label}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                                    transition={{ delay: 0.5 + i * 0.1 }}
                                     whileHover={{ scale: 1.03 }}
                                     className={`glass rounded-xl p-5 border border-white/5 hover:border-[#00d4ff]/20 transition-all duration-300 text-center group ${statItems.length % 2 && i === statItems.length - 1 ? "col-span-2" : ""}`}
                                 >
