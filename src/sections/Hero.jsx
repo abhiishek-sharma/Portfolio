@@ -240,12 +240,12 @@ const Hero = () => {
                         <div className="relative">
                             {/* Outer atmosphere glow */}
                             <div
-                                className="absolute -inset-8 rounded-[3rem] blur-2xl opacity-20 transition-all duration-700"
+                                className="absolute -inset-8 rounded-full blur-2xl opacity-20 transition-all duration-700"
                                 style={{ background: `radial-gradient(circle, ${mood.color}, transparent 70%)` }}
                             />
 
                             {/* Spinning decorative rings */}
-                            <div className="absolute -inset-3 rounded-[1.9rem] border border-dashed pointer-events-none" style={{ borderColor: `${mood.color}40` }} />
+                            <div className="absolute -inset-4 rounded-full border border-dashed pointer-events-none" style={{ borderColor: `${mood.color}40` }} />
 
                             {/* Photo circle */}
                             <motion.div
@@ -253,7 +253,7 @@ const Hero = () => {
                                 initial={{ scale: 0.92, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.35 }}
-                                className="relative w-64 md:w-72 aspect-[406/564] rounded-3xl overflow-hidden"
+                                className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden"
                                 style={{
                                     border: `3px solid ${mood.color}60`,
                                     boxShadow: `0 0 30px ${mood.color}40, 0 0 60px ${mood.color}15`,
@@ -261,7 +261,7 @@ const Hero = () => {
                             >
                                 {/* Gradient ring border — animated */}
                                 <div
-                                    className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${mood.ring} opacity-10 z-10 pointer-events-none`}
+                                    className={`absolute inset-0 rounded-full bg-gradient-to-br ${mood.ring} opacity-10 z-10 pointer-events-none`}
                                 />
 
                                 {/* ── Actual profile photo ── */}
