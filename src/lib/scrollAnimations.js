@@ -35,7 +35,7 @@ export function startScrollAnimations() {
             scrollTrigger: { trigger: "#home", start: "top top", end: "+=100%", pin: true, scrub: 1 },
         })
             .to(".hero-text", { y: -160, opacity: 0, ease: "power1.in" }, 0)
-            .to(".hero-photo", { scale: 0.55, rotate: -10, y: 80, opacity: 0, ease: "power1.in" }, 0)
+            .to(".hero-photo", { scale: 0.55, y: 80, opacity: 0, ease: "power1.in" }, 0)
             .to(".hero-bg", { scale: 1.25, opacity: 0, ease: "none" }, 0);
 
         // Page progress bar
@@ -98,12 +98,11 @@ export function startScrollAnimations() {
             });
         });
 
-        // Skills: cards swing in from alternating sides, chips pop in after
+        // Skills: cards slide in from alternating sides, chips pop in after
         gsap.utils.toArray("#skills .glass.rounded-2xl").forEach((card, i) => {
             const side = i % 2 ? 1 : -1;
             gsap.from(card, {
                 x: 160 * side,
-                rotate: 6 * side,
                 opacity: 0,
                 ease: "power2.out",
                 scrollTrigger: { trigger: card, start: "top 100%", end: "top 60%", scrub: 0.8 },
@@ -134,8 +133,8 @@ export function startScrollAnimations() {
             });
         });
 
-        // Remaining cards (stats, experience card, education, contact): rise and
-        // un-tilt, scrubbed to scroll
+        // Remaining cards (stats, experience card, education, contact): rise in,
+        // scrubbed to scroll
         ["#about", "#experience", "#education", "#contact"].forEach((sel) => {
             const root = document.querySelector(sel);
             if (!root) return;
@@ -144,8 +143,6 @@ export function startScrollAnimations() {
                 .forEach((card) => {
                     gsap.from(card, {
                         y: 120,
-                        rotateX: -12,
-                        transformPerspective: 1000,
                         opacity: 0,
                         ease: "power2.out",
                         scrollTrigger: { trigger: card, start: "top 100%", end: "top 65%", scrub: 0.8 },
@@ -171,12 +168,10 @@ export function startScrollAnimations() {
                 invalidateOnRefresh: true,
             },
         });
-        // Each card grows and turns to face you as it slides into view
+        // Each card grows into view as it slides in
         gsap.utils.toArray(".project-card").forEach((card) => {
             gsap.from(card, {
-                scale: 0.82,
-                rotateY: -18,
-                transformPerspective: 1200,
+                scale: 0.88,
                 opacity: 0.35,
                 ease: "power2.out",
                 scrollTrigger: {
