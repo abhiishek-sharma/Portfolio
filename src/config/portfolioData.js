@@ -20,7 +20,7 @@ export const portfolioData = {
         linkedin: "https://linkedin.com/in/abhisheksharma04",
         twitter: "",
         resume: "/resume.pdf",
-        photoUrl: "",
+        photoUrl: "/profile.jpg",
     },
 
     // Headline numbers, all taken from the resumes

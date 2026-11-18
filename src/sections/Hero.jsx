@@ -20,7 +20,6 @@ const MOODS = [
         color: "#00d4ff",
         ring: "from-cyan-400 to-blue-600",
         caption: "// In the zone. Building the future.",
-        avatarUrl: "/avatars/focused.png",
         theme: { primary: "#00d4ff", secondary: "#8b5cf6" }, // Cyan / Purple
     },
     {
@@ -30,7 +29,6 @@ const MOODS = [
         color: "#8b5cf6",
         ring: "from-purple-400 to-indigo-600",
         caption: "// Design + code = magic.",
-        avatarUrl: "/avatars/creative.png",
         theme: { primary: "#8b5cf6", secondary: "#ff006e" }, // Purple / Pink
     },
     {
@@ -40,7 +38,6 @@ const MOODS = [
         color: "#00ff88",
         ring: "from-emerald-400 to-teal-600",
         caption: "// Coffee + lo-fi + code.",
-        avatarUrl: "/avatars/chill.png",
         theme: { primary: "#00ff88", secondary: "#00d4ff" }, // Green / Cyan
     },
     {
@@ -50,7 +47,6 @@ const MOODS = [
         color: "#ff8c00",
         ring: "from-orange-400 to-red-500",
         caption: "// No shortcuts. Just ship it.",
-        avatarUrl: "/avatars/grind.png",
         theme: { primary: "#ff8c00", secondary: "#ffd60a" }, // Orange / Yellow
     },
     {
@@ -60,7 +56,6 @@ const MOODS = [
         color: "#ffd60a",
         ring: "from-yellow-400 to-amber-500",
         caption: "// Always asking 'what if?'",
-        avatarUrl: "/avatars/curious.png",
         theme: { primary: "#ffd60a", secondary: "#00ff88" }, // Yellow / Green
     },
 ];
@@ -283,9 +278,9 @@ const Hero = () => {
                                 />
 
                                 {/* ── Actual profile photo ── */}
-                                {(mood.avatarUrl || personal.photoUrl) && !imgError ? (
+                                {(personal.photoUrl) && !imgError ? (
                                     <img
-                                        src={mood.avatarUrl || personal.photoUrl}
+                                        src={personal.photoUrl}
                                         alt={personal.name}
                                         className="w-full h-full object-cover object-top"
                                         onError={() => setImgError(true)}
