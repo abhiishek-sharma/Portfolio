@@ -133,7 +133,7 @@ export const portfolioData = {
             description: "AICTE approval portal with Chanakya AI chatbot (Botpress), dynamic document checklist, fee statement generator, and application tracker. SIH 2023 runner-up.",
             tech: ["React", "Vite", "Firebase", "Botpress", "Three.js"],
             github: "https://github.com/abhiishek-sharma/SIH2023",
-            live: "https://assistiq-blush.vercel.app",
+            live: "https://assistiq-aicte.vercel.app",
             stars: 0,
             category: "Full Stack",
             gradient: "from-green-500 to-emerald-500",
