@@ -174,14 +174,14 @@ const Contact = () => {
                                     >
                                         <div className="text-5xl mb-4">🚀</div>
                                         <p className="text-[#00ff88] font-mono text-lg font-bold mb-2">Message sent!</p>
-                                        <p className="text-gray-400 font-mono text-sm">I'll get back to you soon.</p>
+                                        <p className="text-gray-400 font-mono text-sm">I'll reply within 24 hours.</p>
                                     </motion.div>
                                 ) : (
                                     <form onSubmit={handleSubmit} className="space-y-4">
                                         {[
-                                            { name: "name", label: "YOUR_NAME", type: "text", placeholder: "John Doe" },
-                                            { name: "email", label: "YOUR_EMAIL", type: "email", placeholder: "john@example.com" },
-                                            { name: "subject", label: "SUBJECT", type: "text", placeholder: "Let's work together!" },
+                                            { name: "name", label: "YOUR_NAME", type: "text", placeholder: "Your name" },
+                                            { name: "email", label: "YOUR_EMAIL", type: "email", placeholder: "you@company.com" },
+                                            { name: "subject", label: "SUBJECT", type: "text", placeholder: "Role or project" },
                                         ].map((field) => (
                                             <div key={field.name}>
                                                 <label className="block font-mono text-xs text-[#00d4ff] mb-1.5">
@@ -201,7 +201,7 @@ const Contact = () => {
                                             <label className="block font-mono text-xs text-[#00d4ff] mb-1.5">$ MESSAGE:</label>
                                             <textarea
                                                 required
-                                                placeholder="Tell me about your project..."
+                                                placeholder="A few lines on the role or problem you are working on"
                                                 value={formData.message}
                                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                                 rows={4}

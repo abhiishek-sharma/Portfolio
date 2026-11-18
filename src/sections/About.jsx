@@ -48,7 +48,7 @@ const About = () => {
                                 {personal.bio}
                             </p>
                             <p className="text-gray-400 leading-relaxed">
-                                Alongside that I ship full-stack software: I built and maintain a <span className="text-[#00d4ff]">production Next.js website</span>, and I build <span className="text-[#8b5cf6]">local-first AI tools</span> like QueryForge that run on Ollama with no paid API.
+                                My work sits between research and product: scoping what a team actually needs, building the <span className="text-[#00d4ff]">evaluation and agent infrastructure</span> to prove it works, and shipping <span className="text-[#8b5cf6]">production software</span> around it. I also own a production Next.js site end to end and build LLM applications such as QueryForge.
                             </p>
                         </div>
 
@@ -143,12 +143,6 @@ const About = () => {
                                     <span className="text-[#00d4ff]">"location"</span>
                                     <span className="text-gray-600">: </span>
                                     <span className="text-[#00ff88]">"{personal.location}"</span>
-                                    <span className="text-gray-600">,</span>
-                                </div>
-                                <div className="pl-4">
-                                    <span className="text-[#00d4ff]">"coffee"</span>
-                                    <span className="text-gray-600">: </span>
-                                    <span className="text-[#8b5cf6]">true</span>
                                     <span className="text-gray-600">,</span>
                                 </div>
                                 <div className="pl-4">

@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import MatrixRain from "./components/MatrixRain";
-import Terminal, { TerminalButton } from "./components/Terminal";
 
 // Sections
 import Hero from "./sections/Hero";
@@ -29,7 +28,7 @@ const LoadingScreen = ({ onFinish }) => {
     "Initializing system...",
     "Loading portfolio data...",
     "Rendering components...",
-    "Calibrating aesthetics...",
+    "Loading projects...",
     "Ready!",
   ];
 
@@ -65,8 +64,8 @@ const LoadingScreen = ({ onFinish }) => {
         transition={{ duration: 0.5, type: "spring" }}
         className="mb-12 text-center"
       >
-        <h1 className="font-display text-5xl font-black gradient-text mb-2">DEV.FOLIO</h1>
-        <p className="font-mono text-xs text-gray-600">// Personal Portfolio System v2.0</p>
+        <h1 className="font-display text-5xl font-black gradient-text mb-2">ABHISHEK SHARMA</h1>
+        <p className="font-mono text-xs text-gray-600">Forward Deployed Engineer · Generative AI</p>
       </motion.div>
 
       {/* Progress Bar */}
@@ -81,12 +80,6 @@ const LoadingScreen = ({ onFinish }) => {
           <span className="text-[#00ff88]">{status}</span>
           <span className="text-[#00d4ff]">{progress}%</span>
         </div>
-      </div>
-
-      {/* Boot messages */}
-      <div className="absolute bottom-12 font-mono text-xs text-gray-700 space-y-1 text-center">
-        <p>React v18 · Tailwind CSS · Framer Motion</p>
-        <p className="text-[#00d4ff]/30">All systems operational</p>
       </div>
     </motion.div>
   );
@@ -127,7 +120,6 @@ const ScrollToTop = () => {
 // ============================================================
 function App() {
   const [loading, setLoading] = useState(true);
-  const [terminalOpen, setTerminalOpen] = useState(false);
 
   return (
     <>
@@ -145,11 +137,11 @@ function App() {
           <MatrixRain />
 
           {/* Navigation */}
-          <Navbar onTerminalOpen={() => setTerminalOpen(true)} />
+          <Navbar />
 
           {/* Main Content */}
           <main>
-            <Hero onTerminalOpen={() => setTerminalOpen(true)} />
+            <Hero />
             <About />
             <Skills />
             <Experience />
@@ -160,17 +152,6 @@ function App() {
 
           {/* Footer */}
           <Footer />
-
-          {/* Floating Terminal Button */}
-          {!terminalOpen && (
-            <TerminalButton onClick={() => setTerminalOpen(true)} />
-          )}
-
-          {/* Terminal */}
-          <Terminal
-            isOpen={terminalOpen}
-            onClose={() => setTerminalOpen(false)}
-          />
 
           {/* Scroll to top */}
           <ScrollToTop />

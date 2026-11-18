@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import { FaGithub, FaLinkedin, FaDownload, FaTerminal } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
 import portfolioData from "../config/portfolioData";
 
@@ -77,33 +77,12 @@ const SpinRing = ({ color, size, speed, reverse }) => (
     />
 );
 
-// ── Mood selector pill ───────────────────────────────────────
-const MoodPill = ({ mood, isActive, onClick }) => (
-    <motion.button
-        whileHover={{ scale: 1.08, y: -2 }}
-        whileTap={{ scale: 0.93 }}
-        onClick={onClick}
-        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono transition-all duration-300 ${isActive
-            ? "text-white"
-            : "bg-white/5 text-gray-500 hover:text-white border border-white/10"
-            }`}
-        style={
-            isActive
-                ? { background: `${mood.color}25`, border: `1px solid ${mood.color}60`, color: mood.color }
-                : {}
-        }
-    >
-        <span>{mood.emoji}</span>
-        <span>{mood.label}</span>
-    </motion.button>
-);
-
 // ============================================================
 // HERO COMPONENT
 // ============================================================
-const Hero = ({ onTerminalOpen }) => {
+const Hero = () => {
     const { personal } = portfolioData;
-    const [mood, setMood] = useState(MOODS[0]);
+    const mood = MOODS[0];
     const [glitchOn, setGlitchOn] = useState(false);
     const [imgError, setImgError] = useState(false);
 
@@ -165,7 +144,7 @@ const Hero = ({ onTerminalOpen }) => {
                             transition={{ duration: 0.6, delay: 0.1 }}
                             className="font-display text-5xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight"
                         >
-                            <span className="text-white">Hi, I'm</span>
+                            <span className="text-white">I'm</span>
                             <br />
                             <span
                                 className={`gradient-text inline-block ${glitchOn ? "opacity-80 translate-x-0.5" : ""}`}
@@ -200,7 +179,7 @@ const Hero = ({ onTerminalOpen }) => {
                             transition={{ duration: 0.6, delay: 0.3 }}
                             className="text-gray-400 text-lg leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0"
                         >
-                            {personal.bio}
+                            {personal.tagline}
                         </motion.p>
 
                         {/* Location */}
@@ -211,8 +190,6 @@ const Hero = ({ onTerminalOpen }) => {
                             className="flex items-center justify-center lg:justify-start gap-3 text-sm font-mono mb-8"
                         >
                             <span className="text-gray-500">📍 {personal.location}</span>
-                            <span className="text-gray-700">·</span>
-                            <span className="text-[#00ff88]">● Online</span>
                             <span className="text-gray-700">·</span>
                             <span className="text-gray-500">💼 {portfolioData.contact.availability}</span>
                         </motion.div>
@@ -241,14 +218,6 @@ const Hero = ({ onTerminalOpen }) => {
                             >
                                 <FaDownload className="text-xs" /> Resume
                             </motion.a>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                onClick={onTerminalOpen}
-                                className="flex items-center gap-2 px-5 py-3 rounded-lg font-mono text-sm text-[#00ff88] border border-[#00ff88]/30 hover:border-[#00ff88] hover:bg-[#00ff88]/5 transition-all duration-300"
-                            >
-                                <FaTerminal className="text-xs" /> Terminal
-                            </motion.button>
                         </motion.div>
 
                         {/* Social Links */}
@@ -346,49 +315,7 @@ const Hero = ({ onTerminalOpen }) => {
 
                                 {/* Subtle scan line on hover */}
                                 <div className="absolute inset-x-0 top-0 h-full bg-gradient-to-b from-transparent via-white/2 to-transparent pointer-events-none" />
-                            </motion.div>
-
-                            {/* Name badge below the photo */}
-                            <motion.div
-                                key={mood.key + "_badge"}
-                                initial={{ opacity: 0, y: 8 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.15 }}
-                                className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-1 rounded-full glass text-xs font-mono text-white border"
-                                style={{ borderColor: `${mood.color}40` }}
-                            >
-                                <span style={{ color: mood.color }}>{mood.emoji}</span>{" "}
-                                {mood.label} mode
-                            </motion.div>
-                        </div>
-
-                        {/* Caption */}
-                        <AnimatePresence mode="wait">
-                            <motion.p
-                                key={mood.key}
-                                initial={{ opacity: 0, y: 6 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -6 }}
-                                transition={{ duration: 0.25 }}
-                                className="font-mono text-xs mt-2 text-center"
-                                style={{ color: `${mood.color}90` }}
-                            >
-                                {mood.caption}
-                            </motion.p>
-                        </AnimatePresence>
-
-                        {/* Mood selector */}
-                        <div className="flex flex-wrap justify-center gap-2 max-w-xs">
-                            {MOODS.map((m) => (
-                                <MoodPill
-                                    key={m.key}
-                                    mood={m}
-                                    isActive={mood.key === m.key}
-                                    onClick={() => setMood(m)}
-                                />
-                            ))}
-                        </div>
-                    </motion.div>
+                            </motion.div>                        </div>                    </motion.div>
                 </div>
 
                 {/* Scroll indicator */}
@@ -398,7 +325,6 @@ const Hero = ({ onTerminalOpen }) => {
                     transition={{ delay: 1.8 }}
                     className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
                 >
-                    <span className="font-mono text-xs text-gray-700">scroll.exe</span>
                     <motion.div
                         animate={{ y: [0, 8, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

@@ -14,28 +14,24 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     {/* Logo */}
                     <div className="font-display font-bold text-lg tracking-wider">
-                        <span className="gradient-text">DEV</span>
-                        <span className="text-white">.FOLIO</span>
+                        <span className="gradient-text">ABHISHEK</span>
+                        <span className="text-white"> SHARMA</span>
                         <span className="text-[#00d4ff] text-2xl leading-none">_</span>
                     </div>
 
                     {/* Center */}
                     <div className="text-center">
                         <p className="text-gray-600 font-mono text-xs">
-                            Crafted with{" "}
-                            <span className="text-red-500">♥</span>
-                            {" "}by{" "}
-                            <span className="text-[#00d4ff]">{personal.name}</span>
+                            {personal.title}
                         </p>
                         <p className="text-gray-700 font-mono text-xs mt-1">
                             © {new Date().getFullYear()} · Built with React + Tailwind + Framer Motion
                         </p>
                     </div>
 
-                    {/* Terminal hint */}
+                    {/* Email */}
                     <div className="font-mono text-xs text-gray-700 flex items-center gap-2">
-                        <span className="text-[#00ff88]">{">"}_</span>
-                        <span>Try the terminal!</span>
+                        <a href={`mailto:${personal.email}`} className="hover:text-[#00d4ff] transition-colors">{personal.email}</a>
                     </div>
                 </div>
             </div>

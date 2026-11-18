@@ -13,7 +13,7 @@ const navItems = [
     { id: "contact", label: "Contact" },
 ];
 
-const Navbar = ({ onTerminalOpen }) => {
+const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState("home");
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -67,8 +67,8 @@ const Navbar = ({ onTerminalOpen }) => {
                             onClick={() => scrollTo("home")}
                             className="font-display font-bold text-lg tracking-wider"
                         >
-                            <span className="gradient-text">DEV</span>
-                            <span className="text-white">.FOLIO</span>
+                            <span className="gradient-text">ABHISHEK</span>
+                            <span className="text-white"> SHARMA</span>
                             <span className="text-[#00d4ff] text-2xl leading-none">_</span>
                         </motion.button>
 
@@ -90,17 +90,6 @@ const Navbar = ({ onTerminalOpen }) => {
 
                         {/* Right Actions */}
                         <div className="flex items-center gap-3">
-                            {/* Terminal Button */}
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                onClick={onTerminalOpen}
-                                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-xs text-[#00ff88] border border-[#00ff88]/30 hover:border-[#00ff88]/60 hover:bg-[#00ff88]/5 transition-all duration-300"
-                                title="Open Terminal"
-                            >
-                                <span>{">"}_</span>
-                                <span>Terminal</span>
-                            </motion.button>
 
                             {/* Mobile hamburger */}
                             <button
@@ -157,17 +146,6 @@ const Navbar = ({ onTerminalOpen }) => {
                                     {item.label}
                                 </motion.button>
                             ))}
-                            {/* Mobile terminal button */}
-                            <motion.button
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.5 }}
-                                onClick={() => { onTerminalOpen(); setMobileOpen(false); }}
-                                className="mt-6 flex items-center gap-2 px-4 py-3 rounded-lg font-mono text-sm text-[#00ff88] border border-[#00ff88]/30 hover:border-[#00ff88]/60"
-                            >
-                                <span>{">"}_</span>
-                                <span>Open Terminal</span>
-                            </motion.button>
                         </div>
                     </motion.div>
                 )}
