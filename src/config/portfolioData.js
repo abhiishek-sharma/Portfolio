@@ -77,11 +77,11 @@ export const portfolioData = {
             role: "Full Stack Developer — Team FusionX",
             period: "Nov 2023",
             location: "National Finals",
-            description: "Built AssistIQ, an AICTE approval portal with an AI chatbot (Chanakya) trained on the AICTE APH. Problem statement PS1583 by AICTE.",
+            description: "Built AssistIQ, an AICTE approval portal with Chanakya, a guided-menu chatbot covering the AICTE Approval Process Handbook. Problem statement PS1583 by AICTE.",
             achievements: [
                 "Runner-up at national finals (36-hour hackathon, 6-person team)",
                 "Shipped React + Firebase + Botpress stack end-to-end in 36 hrs",
-                "Chanakya chatbot answers questions about AICTE eligibility and fee structures",
+                "Chanakya walks institutes through AICTE handbook topics: eligibility, intake, approvals and fees",
             ],
             tech: ["React", "Vite", "Firebase", "Botpress", "Three.js"],
             type: "hackathon",
@@ -130,7 +130,7 @@ export const portfolioData = {
         },
         {
             name: "AssistIQ",
-            description: "AICTE approval portal with Chanakya AI chatbot (Botpress), dynamic document checklist, fee statement generator, and application tracker. SIH 2023 runner-up.",
+            description: "AICTE approval portal with Chanakya, a guided-menu chatbot (Botpress), plus a dynamic document checklist, fee statement generator and application tracker. SIH 2023 runner-up.",
             tech: ["React", "Vite", "Firebase", "Botpress", "Three.js"],
             github: "https://github.com/abhiishek-sharma/SIH2023",
             live: "https://assistiq-aicte.vercel.app",
