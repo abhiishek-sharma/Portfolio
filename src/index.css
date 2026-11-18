@@ -19,7 +19,6 @@
   }
 
   * {
-    scroll-behavior: smooth;
     box-sizing: border-box;
   }
 
@@ -55,10 +54,9 @@
 
 /* ============== COMPONENTS ============== */
 @layer components {
+  /* No backdrop-filter: blurring behind every card forces repaints while scrolling */
   .glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.035);
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
@@ -399,4 +397,9 @@
 /* ============== LIGHT MODE ============== */
 .light body {
   @apply bg-gray-50 text-gray-900;
+}
+/* Outlined display text for the scroll marquee */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.35);
 }

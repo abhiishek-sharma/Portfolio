@@ -38,7 +38,7 @@ const About = () => {
                         </div>
 
                         <div className="glass rounded-2xl p-6 mb-6 border border-white/5">
-                            <p className="text-gray-300 text-lg leading-relaxed mb-4">
+                            <p className="reveal-words text-gray-100 text-lg leading-relaxed mb-4">
                                 {personal.bio}
                             </p>
                             <p className="text-gray-400 leading-relaxed">

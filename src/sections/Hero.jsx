@@ -5,16 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
-import { useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import portfolioData from "../config/portfolioData";
 import VantaNet from "../components/VantaNet";
 import SplitText from "../components/reactbits/SplitText";
-import { scrollToSection, prefersReducedMotion } from "../lib/smoothScroll";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+import { scrollToSection } from "../lib/smoothScroll";
 
 // ============================================================
 // PROFILE MOODS ─ user switches between vibe/look presets
@@ -86,25 +80,16 @@ const Hero = () => {
     const typingSeq = personal.roles.flatMap((r) => [r, 2200]);
 
     const scrollTo = scrollToSection;
-    const sectionRef = useRef(null);
 
-    // As the hero scrolls away, drift the text and photo apart and fade them out.
-    useGSAP(() => {
-        if (prefersReducedMotion()) return;
-        const st = { trigger: sectionRef.current, start: "top top", end: "bottom top", scrub: true };
-        gsap.to(".hero-text", { y: -80, opacity: 0, ease: "none", scrollTrigger: st });
-        gsap.to(".hero-photo", { y: 60, opacity: 0, ease: "none", scrollTrigger: { ...st } });
-    }, { scope: sectionRef });
 
     return (
         <section
             id="home"
-            ref={sectionRef}
             className="relative min-h-screen flex items-center justify-center overflow-hidden"
         >
             {/* ── Backgrounds ─────────────────────── */}
             <div className="absolute inset-0 bg-[#0d0d1a]" />
-            <VantaNet className="absolute inset-0 opacity-40" />
+            <VantaNet className="hero-bg absolute inset-0 opacity-40" />
 
             {/* ── Main grid ───────────────────────── */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">

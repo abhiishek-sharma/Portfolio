@@ -27,8 +27,9 @@ const VantaNet = ({ className = "" }) => {
                     gyroControls: false,
                     minHeight: 200,
                     minWidth: 200,
-                    scale: 1,
-                    scaleMobile: 1,
+                    // pixelRatio = devicePixelRatio / scale -> render at 1x on Retina
+                    scale: Math.max(1, window.devicePixelRatio || 1),
+                    scaleMobile: Math.max(1, window.devicePixelRatio || 1),
                     color: 0x00d4ff,
                     backgroundColor: 0x0d0d1a,
                     points: 9,

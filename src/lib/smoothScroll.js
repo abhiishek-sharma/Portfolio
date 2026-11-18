@@ -1,5 +1,6 @@
 // Lenis smooth scrolling, driven by GSAP's ticker so ScrollTrigger stays in sync.
 import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -13,7 +14,8 @@ export const prefersReducedMotion = () =>
 
 export function startSmoothScroll() {
     if (lenis || prefersReducedMotion()) return () => {};
-    lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    // Lenis defaults (lerp 0.1) give the intended smooth-but-responsive feel.
+    lenis = new Lenis({ anchors: true });
     lenis.on("scroll", ScrollTrigger.update);
     const tick = (time) => lenis?.raf(time * 1000);
     gsap.ticker.add(tick);

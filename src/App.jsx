@@ -11,6 +11,7 @@ import { startScrollAnimations } from "./lib/scrollAnimations";
 
 // Sections
 import Hero from "./sections/Hero";
+import Marquee from "./components/Marquee";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Experience from "./sections/Experience";
@@ -142,9 +143,6 @@ function App() {
 
       {!loading && (
         <>
-          {/* Noise texture (subtle) */}
-          <div className="noise-overlay" />
-
           {/* Scroll progress (driven by GSAP ScrollTrigger) */}
           <div id="scroll-progress" className="fixed top-0 left-0 right-0 h-0.5 bg-[#00d4ff] origin-left scale-x-0 z-[60] pointer-events-none" />
 
@@ -154,6 +152,7 @@ function App() {
           {/* Main Content */}
           <main>
             <Hero />
+            <Marquee />
             <About />
             <Skills />
             <Experience />
