@@ -14,6 +14,7 @@ const Experience = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
     const { experience } = portfolioData;
+    const single = experience.length === 1;
 
     return (
         <section id="experience" className="relative py-24 overflow-hidden">
@@ -37,7 +38,7 @@ const Experience = () => {
                 {/* Timeline */}
                 <div className="relative">
                     {/* Vertical line */}
-                    <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2">
+                    <div className={`absolute left-0 top-0 bottom-0 w-px ${single ? "" : "md:left-1/2 md:-translate-x-1/2"}`}>
                         <div className="timeline-line" />
                     </div>
 
@@ -54,14 +55,13 @@ const Experience = () => {
                                 className="relative mb-12"
                             >
                                 {/* Timeline node */}
-                                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full border-2 border-[#00d4ff] bg-[#0d0d1a] z-10 top-6 -translate-x-[6px] md:translate-x-0">
+                                <div className={`absolute left-0 ${single ? "" : "md:left-1/2 md:-translate-x-1/2 md:translate-x-0"} w-4 h-4 rounded-full border-2 border-[#00d4ff] bg-[#0d0d1a] z-10 top-6 -translate-x-[6px]`}>
                                     <div className="absolute inset-1 rounded-full bg-[#00d4ff] animate-pulse" />
                                 </div>
 
                                 {/* Card */}
                                 <div
-                                    className={`ml-8 md:w-[45%] ${isLeft ? "md:ml-0 md:mr-auto" : "md:ml-auto md:mr-0 md:pl-0"
-                                        }`}
+                                    className={`ml-8 ${single ? "" : `md:w-[45%] ${isLeft ? "md:ml-0 md:mr-auto" : "md:ml-auto md:mr-0 md:pl-0"}`}`}
                                 >
                                     <motion.div
                                         whileHover={{ scale: 1.02 }}
@@ -95,14 +95,29 @@ const Experience = () => {
                                         <p className="text-gray-400 text-sm leading-relaxed mb-4">{exp.description}</p>
 
                                         {/* Achievements */}
-                                        <ul className="space-y-2 mb-4">
-                                            {exp.achievements.map((item, i) => (
-                                                <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
-                                                    <span className="text-[#00d4ff] mt-0.5 flex-shrink-0">▸</span>
-                                                    {item}
-                                                </li>
-                                            ))}
-                                        </ul>
+                                        {exp.achievementGroups?.map((group) => (
+                                            <div key={group.heading} className="mb-4">
+                                                <p className="font-mono text-xs uppercase tracking-wider text-[#00ff88] mb-2">{group.heading}</p>
+                                                <ul className="space-y-2">
+                                                    {group.items.map((item, i) => (
+                                                        <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
+                                                            <span className="text-[#00d4ff] mt-0.5 flex-shrink-0">▸</span>
+                                                            {item}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
+                                        {exp.achievements?.length > 0 && (
+                                            <ul className="space-y-2 mb-4">
+                                                {exp.achievements.map((item, i) => (
+                                                    <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
+                                                        <span className="text-[#00d4ff] mt-0.5 flex-shrink-0">▸</span>
+                                                        {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
 
                                         {/* Tech tags */}
                                         <div className="flex flex-wrap gap-2">

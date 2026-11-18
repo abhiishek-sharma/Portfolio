@@ -10,9 +10,9 @@ export const portfolioData = {
         roles: [
             "Forward Deployed Engineer",
             "Generative AI Engineer",
-            "Applied AI Engineer",
+            "LLM Evaluation Engineer",
         ],
-        bio: "Software engineer with two years of applied AI and production engineering. I turn research and customer goals into working systems: evaluation harnesses, agentic pipelines and LLM applications that hold up in production.",
+        bio: "Software engineer with two years of applied AI, LLM post-training and evaluation experience. I work directly with research partners to turn their goals into evaluation harnesses, agentic pipelines and targeted training data, and I build and run the production software around them.",
         tagline: "I build evaluation harnesses, agentic pipelines and LLM applications, and work directly with research and product teams to put them into production.",
         location: "Noida, India",
         email: "abhisheksharmaa1404@gmail.com",
@@ -23,15 +23,15 @@ export const portfolioData = {
         photoUrl: "",
     },
 
-    // Headline numbers, all taken from the resume
+    // Headline numbers, all taken from the resumes
     stats: [
-        { value: "2+ yrs", label: "Applied AI in production", icon: "⚡" },
+        { value: "2,000+", label: "AI training & evaluation tasks delivered", icon: "🧪" },
+        { value: "50+", label: "Coding tasks authored (Python, Go, Rust, TS)", icon: "💻" },
         { value: "24h+", label: "Agentic jobs operated end to end", icon: "🤖" },
-        { value: "4", label: "Languages shipped: Python, Go, Rust, TS", icon: "💻" },
         { value: "3.2K", label: "Monthly visitors on a production site I maintain", icon: "🌐" },
     ],
 
-    // Skills
+    // Skills, merged from all three resumes
     skills: [
         {
             category: "Generative AI",
@@ -39,23 +39,40 @@ export const portfolioData = {
             color: "#00ff88",
             items: [
                 "LLM applications",
-                "RAG & vector databases",
+                "RAG",
+                "Vector databases",
                 "Agentic workflows",
                 "Prompt engineering",
-                "Fine-tuning (SFT) & RLHF",
-                "OpenAI API · Ollama",
+                "OpenAI API",
+                "Ollama",
             ],
         },
         {
-            category: "Evaluation & Reliability",
+            category: "Post-training",
+            icon: "🎯",
+            color: "#ff006e",
+            items: [
+                "Supervised fine-tuning",
+                "RLHF",
+                "Preference ranking",
+                "Targeted training data",
+                "Model trajectories",
+                "Adversarial prompting",
+            ],
+        },
+        {
+            category: "Evaluation",
             icon: "📏",
             color: "#00d4ff",
             items: [
                 "Evaluation harnesses",
-                "LLM-as-judge grading",
-                "SWE-bench-style tasks",
+                "SWE-bench",
+                "SWE-Smith",
                 "ARC-AGI-3",
-                "Failure analysis",
+                "LLM-as-judge grading",
+                "Grading rubrics",
+                "Verified reference solutions",
+                "Difficulty calibration",
             ],
         },
         {
@@ -64,11 +81,18 @@ export const portfolioData = {
             color: "#8b5cf6",
             items: [
                 "Python",
-                "TypeScript / JavaScript",
+                "TypeScript",
+                "JavaScript",
                 "SQL",
-                "FastAPI · REST APIs",
-                "Next.js · React",
+                "Go",
+                "Rust",
+                "FastAPI",
+                "REST APIs",
+                "Next.js",
+                "React",
                 "Node.js",
+                "Pandas",
+                "NumPy",
             ],
         },
         {
@@ -78,8 +102,9 @@ export const portfolioData = {
             items: [
                 "Docker",
                 "AWS ECR",
+                "Bash",
+                "Git",
                 "GitHub Actions",
-                "Bash automation",
                 "pytest",
             ],
         },
@@ -89,19 +114,46 @@ export const portfolioData = {
     experience: [
         {
             company: "Ethara AI",
-            role: "Software Engineer",
+            role: "Software Engineer and Quality Lead, LLM Evaluation",
             period: "Nov 2024 – Present",
             location: "Noida, India",
-            description: "Build the evaluation and agent infrastructure behind frontier-model post-training, working directly with external researchers to turn their goals into working systems.",
-            achievements: [
-                "Partnered directly with an external research engineer to translate research goals into evaluation workflows, failure data and model trajectories for targeted post-training",
-                "Built and delivered a code-migration evaluation harness, from research review through task execution and trajectory generation",
-                "Developed tooling for two evaluation harnesses, including ARC-AGI-3 benchmark evaluation and OpenAI API-based judging and grading",
-                "Operated 24-hour-plus agentic jobs in Docker sandboxes with memory limits, image management on AWS ECR, and Python/Bash watchers",
-                "Designed coding tasks across Python, Go, Rust and TypeScript with reference solutions and tests, calibrated against model solve rates",
-                "Ran supervised fine-tuning and RLHF workflows, with additional work across RAG and vector retrieval",
+            description: "Applied AI engineering for frontier-model post-training: working directly with research partners, building evaluation and agent infrastructure, and producing the verified data that improves model reasoning and coding.",
+            achievementGroups: [
+                {
+                    heading: "Forward deployed & applied AI",
+                    items: [
+                        "Worked directly with an external research engineer to identify where frontier models failed reasoning tasks, translating research goals into evaluation workflows, failure examples and model trajectories for targeted post-training",
+                        "Identified failure modes in frontier models across coding, long-horizon reasoning and instruction following; produced verified solutions and targeted data for post-training",
+                        "Additional work across RAG, vector retrieval, model fine-tuning and RLHF",
+                    ],
+                },
+                {
+                    heading: "Evaluation harnesses & agent infrastructure",
+                    items: [
+                        "Built and delivered a code-migration evaluation harness informed by a research review, with code-migration tasks, task execution and model-trajectory generation",
+                        "Developed tooling for two evaluation harnesses, including ARC-AGI-3 benchmark-based evaluation of model reasoning and OpenAI API-based judging and grading",
+                        "Operated 24-hour-plus agentic jobs in Docker sandboxes with memory limits, image management, AWS ECR, Python scripts and Bash watchers",
+                    ],
+                },
+                {
+                    heading: "Post-training",
+                    items: [
+                        "Ran supervised fine-tuning workflows and contributed to in-house RLHF tooling",
+                        "Authored adversarial prompts targeting reasoning and instruction-following failures; ranked model outputs as preference pairs for reward-model training",
+                        "Produced verified reference solutions, tests, grading rubrics, trajectories and harness code for post-training workflows",
+                    ],
+                },
+                {
+                    heading: "Task design & quality leadership",
+                    items: [
+                        "Delivered 2,000+ AI training and evaluation tasks over two years",
+                        "Authored and delivered 50+ SWE-bench and SWE-Smith-style coding tasks in Python, Go, Rust and TypeScript, with reference fixes and tests",
+                        "Led task quality gates using rubrics, tests and iterative difficulty calibration, hardening tasks and verifying them against model solve rates",
+                    ],
+                },
             ],
-            tech: ["Python", "Docker", "AWS ECR", "OpenAI API", "Bash", "pytest"],
+            achievements: [],
+            tech: ["Python", "Docker", "AWS ECR", "OpenAI API", "Bash", "pytest", "SFT", "RLHF"],
             type: "full-time",
         },
     ],
@@ -110,7 +162,7 @@ export const portfolioData = {
     projects: [
         {
             name: "QueryForge",
-            description: "Schema-aware natural-language-to-SQL over CSV, Excel and SQLite using a local Ollama model. A validation layer blocks unsafe queries and corrects mismatched table and column names. Ships with a 16-question eval suite.",
+            description: "Schema-aware natural-language-to-SQL pipeline with schema extraction from CSV, Excel and SQLite, running on a local Ollama model. A validation layer blocks unsafe queries and corrects mismatched table and column names. Ships with a 16-question eval suite.",
             tech: ["Python", "FastAPI", "Ollama", "SQLCoder", "sqlparse", "React"],
             github: "https://github.com/abhiishek-sharma/QueryForge",
             live: null,
