@@ -63,7 +63,7 @@ const Contact = () => {
     ];
 
     return (
-        <section id="contact" className="relative py-24 overflow-hidden">
+        <section id="contact" className="relative overflow-hidden lg:min-h-screen lg:flex lg:flex-col lg:justify-start py-20 lg:pt-24 lg:pb-8">
             <div className="absolute inset-0 bg-[#0a0a14]" />
             <div className="absolute inset-0 cyber-grid-bg opacity-20" />
             <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
@@ -72,12 +72,12 @@ const Contact = () => {
             <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <motion.div
-                    className="text-center mb-16"
+                    className="text-center mb-8 lg:mb-10"
                 >
                     <p className="font-mono text-[#00d4ff] text-sm uppercase tracking-widest mb-3">06 / Contact</p>
                     <h2 className="section-heading">Get In Touch</h2>
                     <div className="w-24 h-px mx-auto bg-[#00d4ff] mt-4" />
-                    <p className="text-gray-400 mt-4 max-w-lg mx-auto">
+                    <p className="text-gray-400 mt-3 max-w-lg mx-auto">
                         Hiring for GenAI, LLM evaluation or forward deployed roles? I'd like to hear from you.
                     </p>
                 </motion.div>
@@ -86,9 +86,9 @@ const Contact = () => {
                     {/* Left: Contact Info */}
                     <motion.div
                         data-anim="from-left"
-                        className="space-y-6"
+                        className="space-y-4"
                     >
-                        <div className="glass rounded-2xl p-6 border border-white/5 space-y-5">
+                        <div className="glass rounded-2xl p-5 border border-white/5 space-y-4">
                             <h3 className="font-display font-bold text-lg text-white">Contact Information</h3>
 
                             {[
@@ -157,7 +157,7 @@ const Contact = () => {
                                 <div className="terminal-dot bg-green-500" />
                                 <span className="ml-3 font-mono text-xs text-gray-500">send_message.sh</span>
                             </div>
-                            <div className="p-6">
+                            <div className="p-5">
                                 {submitted ? (
                                     <motion.div
                                         initial={{ opacity: 0, scale: 0.9 }}
@@ -196,7 +196,7 @@ const Contact = () => {
                                                 placeholder="A few lines on the role or problem you are working on"
                                                 value={formData.message}
                                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                                rows={4}
+                                                rows={3}
                                                 className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 font-mono text-sm text-gray-300 placeholder-gray-700 focus:outline-none focus:border-[#00d4ff]/50 focus:bg-white/8 transition-all duration-300 resize-none"
                                             />
                                         </div>

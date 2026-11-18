@@ -22,6 +22,15 @@ const topLevelCards = (root) =>
             return !outer || !root.contains(outer);
         });
 
+// Reveals are keyed to their section, not the element: with section snapping,
+// every reveal finishes exactly when its section lands at the top of the screen.
+const inSection = (el, start, end = "top top") => ({
+    trigger: el.closest("section") || el,
+    start,
+    end,
+    scrub: true,
+});
+
 export function startScrollAnimations() {
     if (prefersReducedMotion()) return () => {};
 
@@ -30,14 +39,14 @@ export function startScrollAnimations() {
     // Triggers are created strictly top-to-bottom (hero pin first, projects pin
     // last) so each pin's start accounts for the spacing added by pins above it.
     const ctx = gsap.context(() => {
-        // Hero: pinned for one screen while the text lifts away and the photo
-        // shrinks and tilts out
+        // Hero: pinned for half a screen while the text lifts and the photo
+        // shrinks back (they dim but never vanish, so there is no empty screen)
         gsap.timeline({
-            scrollTrigger: { trigger: "#home", start: "top top", end: "+=100%", pin: true, scrub: true },
+            scrollTrigger: { trigger: "#home", start: "top top", end: "+=50%", pin: true, scrub: true },
         })
-            .to(".hero-text", { y: -60, opacity: 0, ease: "power1.in" }, 0)
-            .to(".hero-photo", { scale: 0.75, y: 30, opacity: 0, ease: "power1.in" }, 0)
-            .to(".hero-bg", { scale: 1.25, opacity: 0, ease: "none" }, 0);
+            .to(".hero-text", { y: -60, opacity: 0.3, ease: "none" }, 0)
+            .to(".hero-photo", { scale: 0.85, y: 30, opacity: 0.3, ease: "none" }, 0)
+            .to(".hero-bg", { scale: 1.15, ease: "none" }, 0);
 
         // Page progress bar
         gsap.to("#scroll-progress", {
@@ -67,7 +76,7 @@ export function startScrollAnimations() {
             const label = header.querySelector("p");
             const underline = header.querySelector(".w-24.h-px");
             const tl = gsap.timeline({
-                scrollTrigger: { trigger: header, start: "top 90%", end: "top 45%", scrub: true },
+                scrollTrigger: inSection(header, "top 90%", "top 30%"),
             });
             if (label) tl.from(label, { y: 16, opacity: 0, ease: "none" }, 0);
             tl.from(split.chars, { yPercent: 110, stagger: 0.04, ease: "power3.out" }, 0.05);
@@ -84,7 +93,7 @@ export function startScrollAnimations() {
                     opacity: 1,
                     stagger: 0.1,
                     ease: "none",
-                    scrollTrigger: { trigger: p, start: "top 85%", end: "bottom 40%", scrub: true },
+                    scrollTrigger: inSection(p, "top 70%"),
                 }
             );
         });
@@ -95,7 +104,7 @@ export function startScrollAnimations() {
                 x: col.dataset.anim === "from-left" ? -50 : 50,
                 opacity: 0,
                 ease: "none",
-                scrollTrigger: { trigger: col, start: "top 95%", end: "top 55%", scrub: true },
+                scrollTrigger: inSection(col, "top 90%", "top 20%"),
             });
         });
 
@@ -106,14 +115,14 @@ export function startScrollAnimations() {
                 x: 60 * side,
                 opacity: 0,
                 ease: "none",
-                scrollTrigger: { trigger: card, start: "top 100%", end: "top 60%", scrub: true },
+                scrollTrigger: inSection(card, "top 90%", "top 20%"),
             });
             gsap.from(card.querySelectorAll(".flex-wrap > span"), {
                 scale: 0.4,
                 opacity: 0,
                 stagger: 0.06,
                 ease: "back.out(2)",
-                scrollTrigger: { trigger: card, start: "top 80%", end: "top 45%", scrub: true },
+                scrollTrigger: inSection(card, "top 60%"),
             });
         });
 
@@ -122,7 +131,7 @@ export function startScrollAnimations() {
             scaleY: 0,
             transformOrigin: "top",
             ease: "none",
-            scrollTrigger: { trigger: "#experience", start: "top 60%", end: "bottom 70%", scrub: true },
+            scrollTrigger: { trigger: "#experience", start: "top 70%", end: "top top", scrub: true },
         });
         gsap.utils.toArray("#experience ul").forEach((list) => {
             gsap.from(list.querySelectorAll("li"), {
@@ -130,7 +139,7 @@ export function startScrollAnimations() {
                 opacity: 0,
                 stagger: 0.15,
                 ease: "none",
-                scrollTrigger: { trigger: list, start: "top 92%", end: "top 55%", scrub: true },
+                scrollTrigger: inSection(list, "top 60%"),
             });
         });
 
@@ -146,7 +155,7 @@ export function startScrollAnimations() {
                         y: 30,
                         opacity: 0,
                         ease: "none",
-                        scrollTrigger: { trigger: card, start: "top 100%", end: "top 65%", scrub: true },
+                        scrollTrigger: inSection(card, "top 90%", "top 15%"),
                     });
                 });
         });

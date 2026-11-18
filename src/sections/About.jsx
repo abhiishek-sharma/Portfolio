@@ -12,7 +12,7 @@ const About = () => {
     const { personal, stats: statItems } = portfolioData;
 
     return (
-        <section id="about" className="relative py-24 overflow-hidden">
+        <section id="about" className="relative overflow-hidden lg:min-h-screen lg:flex lg:flex-col lg:justify-start py-20 lg:pt-24 lg:pb-8">
             {/* Background */}
             <div className="absolute inset-0 bg-[#0d0d1a]" />
             <div className="absolute inset-0 cyber-grid-bg opacity-20" />
@@ -21,23 +21,17 @@ const About = () => {
             <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
-                    className="text-center mb-16"
+                    className="text-center mb-8 lg:mb-10"
                 >
                     <p className="font-mono text-[#00d4ff] text-sm uppercase tracking-widest mb-3">01 / About</p>
                     <h2 className="section-heading">About Me</h2>
                     <div className="w-24 h-px mx-auto bg-[#00d4ff] mt-4" />
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-16 items-start">
+                <div className="grid lg:grid-cols-2 gap-10 items-start">
                     {/* Left: Info */}
                     <motion.div data-anim="from-left">
-                        {/* Terminal-style heading */}
-                        <div className="font-mono text-sm text-gray-600 mb-4">
-                            <span className="text-[#00ff88]">~/portfolio</span>
-                            <span className="text-gray-500"> $ cat about.txt</span>
-                        </div>
-
-                        <div className="glass rounded-2xl p-6 mb-6 border border-white/5">
+                        <div className="glass rounded-2xl p-6 mb-5 border border-white/5">
                             <p className="reveal-words text-gray-100 text-lg leading-relaxed mb-4">
                                 {personal.bio}
                             </p>
@@ -47,7 +41,7 @@ const About = () => {
                         </div>
 
                         {/* Contact Info */}
-                        <div className="space-y-3 mb-8">
+                        <div className="space-y-3 mb-5">
                             {[
                                 { icon: FaEnvelope, label: "Email", value: personal.email, color: "#00d4ff" },
                                 { icon: FaMapMarkerAlt, label: "Location", value: personal.location, color: "#00ff88" },
@@ -88,15 +82,15 @@ const About = () => {
 
                     {/* Right: Stats + Code block */}
                     <motion.div
-                        className="space-y-6"
+                        className="space-y-5"
                     >
                         {/* Stats Grid */}
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-3 gap-3">
                             {statItems.map((stat, i) => (
                                 <motion.div
                                     key={stat.label}
                                     whileHover={{ scale: 1.03 }}
-                                    className={`glass rounded-xl p-5 border border-white/5 hover:border-[#00d4ff]/20 transition-all duration-300 text-center group ${statItems.length % 2 && i === statItems.length - 1 ? "col-span-2" : ""}`}
+                                    className={`glass rounded-xl p-4 border border-white/5 hover:border-[#00d4ff]/20 transition-all duration-300 text-center group`}
                                 >
                                     <div className="text-3xl mb-2">{stat.icon}</div>
                                     <div className="font-display text-3xl font-black text-[#00d4ff] mb-1">

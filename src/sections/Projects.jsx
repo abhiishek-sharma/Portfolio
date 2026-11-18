@@ -15,7 +15,7 @@ const Projects = () => {
             <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
 
             {/* On desktop this block is pinned and the track scrolls sideways (see scrollAnimations.js) */}
-            <div className="projects-pin relative z-10 py-24 lg:py-0 lg:h-screen lg:flex lg:flex-col lg:justify-center">
+            <div className="projects-pin relative z-10 py-24 lg:py-0 lg:h-screen lg:flex lg:flex-col lg:justify-start lg:pt-24">
                 {/* Header */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                     <div className="text-center lg:text-left mb-12 lg:mb-10">

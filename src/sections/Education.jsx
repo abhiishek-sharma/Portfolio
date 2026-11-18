@@ -9,7 +9,7 @@ const Education = () => {
     const { education } = portfolioData;
 
     return (
-        <section id="education" className="relative py-24 overflow-hidden">
+        <section id="education" className="relative overflow-hidden lg:min-h-screen lg:flex lg:flex-col lg:justify-start py-20 lg:pt-24 lg:pb-8">
             <div className="absolute inset-0 bg-[#0a0a14]" />
             <div className="absolute inset-0 cyber-grid-bg opacity-20" />
             <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
@@ -17,7 +17,7 @@ const Education = () => {
             <div ref={ref} className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <motion.div
-                    className="text-center mb-16"
+                    className="text-center mb-8 lg:mb-10"
                 >
                     <p className="font-mono text-[#00ff88] text-sm uppercase tracking-widest mb-3">05 / Education</p>
                     <h2 className="section-heading">Education</h2>

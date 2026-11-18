@@ -27,12 +27,22 @@ export function startSmoothScroll() {
     };
 }
 
+export const getLenis = () => lenis;
+
+// True while a navbar/back-to-top jump is in progress
+export let navigating = false;
+
 // Scroll to a section id (or "top"), using Lenis when it is running.
 export function scrollToSection(id) {
     const target = id === "top" ? 0 : document.getElementById(id);
     if (target === null) return;
     if (lenis) {
-        lenis.scrollTo(target, { offset: id === "top" ? 0 : -72 });
+        navigating = true;
+        lenis.scrollTo(target, {
+            onComplete: () => {
+                navigating = false;
+            },
+        });
     } else if (id === "top") {
         window.scrollTo({ top: 0, behavior: "smooth" });
     } else {

@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { startSmoothScroll, scrollToSection } from "./lib/smoothScroll";
 import { startScrollAnimations } from "./lib/scrollAnimations";
+import { startSectionSnap } from "./lib/sectionSnap";
 
 // Sections
 import Hero from "./sections/Hero";
@@ -128,7 +129,9 @@ function App() {
     if (loading) return undefined;
     const stopScroll = startSmoothScroll();
     const stopAnimations = startScrollAnimations();
+    const stopSnap = startSectionSnap();
     return () => {
+      stopSnap();
       stopAnimations();
       stopScroll();
     };

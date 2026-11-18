@@ -17,15 +17,15 @@ const Experience = () => {
     const single = experience.length === 1;
 
     return (
-        <section id="experience" className="relative py-24 overflow-hidden">
+        <section id="experience" className="relative overflow-hidden lg:min-h-screen lg:flex lg:flex-col lg:justify-start py-20 lg:pt-24 lg:pb-8">
             <div className="absolute inset-0 bg-[#0d0d1a]" />
             <div className="absolute inset-0 cyber-grid-bg opacity-20" />
             <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
 
-            <div ref={ref} className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <motion.div
-                    className="text-center mb-16"
+                    className="text-center mb-8 lg:mb-10"
                 >
                     <p className="font-mono text-[#00ff88] text-sm uppercase tracking-widest mb-3">03 / Experience</p>
                     <h2 className="section-heading">Experience</h2>
@@ -59,7 +59,7 @@ const Experience = () => {
                                 >
                                     <motion.div
                                         whileHover={{ scale: 1.02 }}
-                                        className="glass rounded-2xl p-6 border border-white/5 hover:border-[#00d4ff]/20 transition-all duration-300"
+                                        className="glass rounded-2xl p-5 border border-white/5 hover:border-[#00d4ff]/20 transition-all duration-300"
                                     >
                                         {/* Header */}
                                         <div className="flex items-start justify-between flex-wrap gap-2 mb-3">
@@ -76,7 +76,7 @@ const Experience = () => {
                                         </div>
 
                                         {/* Meta */}
-                                        <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-gray-500 mb-4">
+                                        <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-gray-500 mb-3">
                                             <span className="flex items-center gap-1">
                                                 <span>📅</span> {exp.period}
                                             </span>
@@ -86,15 +86,16 @@ const Experience = () => {
                                         </div>
 
                                         {/* Description */}
-                                        <p className="text-gray-400 text-sm leading-relaxed mb-4">{exp.description}</p>
+                                        <p className="text-gray-400 text-sm leading-relaxed mb-3">{exp.description}</p>
 
                                         {/* Achievements */}
+                                        <div className="grid lg:grid-cols-2 gap-x-8">
                                         {exp.achievementGroups?.map((group) => (
-                                            <div key={group.heading} className="mb-4">
+                                            <div key={group.heading} className="mb-3">
                                                 <p className="font-mono text-xs uppercase tracking-wider text-[#00ff88] mb-2">{group.heading}</p>
-                                                <ul className="space-y-2">
+                                                <ul className="space-y-1.5">
                                                     {group.items.map((item, i) => (
-                                                        <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
+                                                        <li key={i} className="flex items-start gap-2 text-[13px] leading-snug text-gray-300">
                                                             <span className="text-[#00d4ff] mt-0.5 flex-shrink-0">▸</span>
                                                             {item}
                                                         </li>
@@ -102,6 +103,7 @@ const Experience = () => {
                                                 </ul>
                                             </div>
                                         ))}
+                                        </div>
                                         {exp.achievements?.length > 0 && (
                                             <ul className="space-y-2 mb-4">
                                                 {exp.achievements.map((item, i) => (
