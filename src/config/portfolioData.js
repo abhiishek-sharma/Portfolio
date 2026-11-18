@@ -114,7 +114,7 @@ export const portfolioData = {
     experience: [
         {
             company: "Ethara AI",
-            role: "Software Engineer and Quality Lead, LLM Evaluation",
+            role: "Software Engineer, LLM Evaluation",
             period: "Nov 2024 – Present",
             location: "Noida, India",
             description: "Applied AI engineering for frontier-model post-training: working directly with research partners, building evaluation and agent infrastructure, and producing the verified data that improves model reasoning and coding.",
@@ -144,7 +144,7 @@ export const portfolioData = {
                     ],
                 },
                 {
-                    heading: "Task design & quality leadership",
+                    heading: "Task design & quality gates",
                     items: [
                         "Delivered 2,000+ AI training and evaluation tasks over two years",
                         "Authored and delivered 50+ SWE-bench and SWE-Smith-style coding tasks in Python, Go, Rust and TypeScript, with reference fixes and tests",

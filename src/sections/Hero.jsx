@@ -253,7 +253,7 @@ const Hero = () => {
                                 initial={{ scale: 0.92, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.35 }}
-                                className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden"
+                                className="relative w-80 h-80 md:w-[26rem] md:h-[26rem] rounded-full overflow-hidden"
                                 style={{
                                     border: `3px solid ${mood.color}60`,
                                     boxShadow: `0 0 30px ${mood.color}40, 0 0 60px ${mood.color}15`,
