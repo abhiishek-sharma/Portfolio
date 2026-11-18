@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
 import portfolioData from "../config/portfolioData";
 import VantaNet from "../components/VantaNet";
+import ResumeMenu from "../components/ResumeMenu";
 import SplitText from "../components/reactbits/SplitText";
 import { scrollToSection } from "../lib/smoothScroll";
 
@@ -186,15 +187,7 @@ const Hero = () => {
                             >
                                 View Projects
                             </motion.button>
-                            <motion.a
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                href={personal.resume}
-                                download
-                                className="btn-outline-cyber flex items-center gap-2"
-                            >
-                                <FaDownload className="text-xs" /> Resume
-                            </motion.a>
+                            <ResumeMenu resumes={personal.resumes} />
                         </motion.div>
 
                         {/* Social Links */}

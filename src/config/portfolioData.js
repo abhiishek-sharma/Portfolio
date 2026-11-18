@@ -19,7 +19,12 @@ export const portfolioData = {
         github: "https://github.com/abhiishek-sharma",
         linkedin: "https://linkedin.com/in/abhisheksharma04",
         twitter: "",
-        resume: "/resume.pdf",
+        // Three tailored versions of the resume, offered from the hero's Resume menu
+        resumes: [
+            { label: "Generative AI Engineer", file: "/resumes/Abhishek_Sharma_GenAI_Engineer.pdf" },
+            { label: "Forward Deployed Engineer", file: "/resumes/Abhishek_Sharma_Forward_Deployed_Engineer.pdf" },
+            { label: "LLM Evaluation Engineer", file: "/resumes/Abhishek_Sharma_LLM_Evaluation_Engineer.pdf" },
+        ],
         photoUrl: "/profile.jpg",
     },
 
