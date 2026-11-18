@@ -1,5 +1,5 @@
 // Two rows of oversized outlined text that slide in opposite directions as you scroll.
-const ROW = "Forward Deployed Engineer ✦ Generative AI ✦ LLM Evaluation ✦ ";
+const ROW = "Applied AI ✦ LLM Evaluation ✦ Agentic Systems ✦ Production Software ✦ ";
 
 const Marquee = () => (
     <section aria-hidden="true" className="marquee relative overflow-hidden bg-[#0d0d1a] py-16 md:py-24 select-none">

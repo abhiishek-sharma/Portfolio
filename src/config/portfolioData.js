@@ -6,11 +6,11 @@ export const portfolioData = {
     // Personal Info
     personal: {
         name: "Abhishek Sharma",
-        title: "Forward Deployed Engineer · Generative AI",
+        title: "Software Engineer · Applied AI",
         roles: [
-            "Forward Deployed Engineer",
-            "Generative AI Engineer",
-            "LLM Evaluation Engineer",
+            "Software Engineer",
+            "Applied AI & LLM Evaluation",
+            "Evaluation Harnesses & Agentic Jobs",
         ],
         bio: "Software engineer with two years of applied AI, LLM post-training and evaluation experience. I translate external research goals into evaluation workflows, failure data and model trajectories for targeted post-training, and I build multi-repository tooling and production software.",
         tagline: "I build evaluation harnesses, run long-horizon agentic jobs and ship production software, working directly with external research engineers on frontier-model post-training.",
@@ -230,7 +230,7 @@ export const portfolioData = {
         email: "abhisheksharmaa1404@gmail.com",
         phone: "",
         location: "Noida, India",
-        availability: "Open to Forward Deployed and GenAI roles",
+        availability: "Targeting Forward Deployed and GenAI roles",
         responseTime: "Within 24 hours",
         web3formsKey: "e579d9e3-7a00-4cec-a078-91dac92240e2",
         social: {

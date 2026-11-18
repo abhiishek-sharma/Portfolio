@@ -67,7 +67,7 @@ const LoadingScreen = ({ onFinish }) => {
         className="mb-12 text-center"
       >
         <h1 className="font-display text-5xl font-black gradient-text mb-2">ABHISHEK SHARMA</h1>
-        <p className="font-mono text-xs text-gray-600">Forward Deployed Engineer · Generative AI</p>
+        <p className="font-mono text-xs text-gray-600">Software Engineer · Applied AI</p>
       </motion.div>
 
       {/* Progress Bar */}
