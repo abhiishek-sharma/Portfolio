@@ -12,8 +12,8 @@ export const portfolioData = {
             "Generative AI Engineer",
             "LLM Evaluation Engineer",
         ],
-        bio: "Software engineer with two years of applied AI, LLM post-training and evaluation experience. I work directly with research partners to turn their goals into evaluation harnesses, agentic pipelines and targeted training data, and I build and run the production software around them.",
-        tagline: "I build evaluation harnesses, agentic pipelines and LLM applications, and work directly with research and product teams to put them into production.",
+        bio: "Software engineer with two years of applied AI, LLM post-training and evaluation experience. I translate external research goals into evaluation workflows, failure data and model trajectories for targeted post-training, and I build multi-repository tooling and production software.",
+        tagline: "I build evaluation harnesses, run long-horizon agentic jobs and ship production software, working directly with external research engineers on frontier-model post-training.",
         location: "Noida, India",
         email: "abhisheksharmaa1404@gmail.com",
         github: "https://github.com/abhiishek-sharma",
@@ -26,8 +26,7 @@ export const portfolioData = {
     // Headline numbers, all taken from the resumes
     stats: [
         { value: "2,000+", label: "AI training & evaluation tasks delivered", icon: "🧪" },
-        { value: "50+", label: "Coding tasks authored (Python, Go, Rust, TS)", icon: "💻" },
-        { value: "24h+", label: "Agentic jobs operated end to end", icon: "🤖" },
+        { value: "24h+", label: "Long-running agentic jobs operated", icon: "🤖" },
         { value: "3.2K", label: "Monthly visitors on a production site I maintain", icon: "🌐" },
     ],
 
@@ -117,7 +116,7 @@ export const portfolioData = {
             role: "Software Engineer, LLM Evaluation",
             period: "Nov 2024 – Present",
             location: "Noida, India",
-            description: "Applied AI engineering for frontier-model post-training: working directly with research partners, building evaluation and agent infrastructure, and producing the verified data that improves model reasoning and coding.",
+            description: "Applied AI engineering for frontier-model post-training: working directly with an external research engineer, building evaluation harnesses and tooling, and producing verified data for targeted post-training.",
             achievementGroups: [
                 {
                     heading: "Forward deployed & applied AI",

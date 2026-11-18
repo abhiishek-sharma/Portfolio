@@ -48,7 +48,7 @@ const About = () => {
                                 {personal.bio}
                             </p>
                             <p className="text-gray-400 leading-relaxed">
-                                My work sits between research and product: scoping what a team actually needs, building the <span className="text-[#00d4ff]">evaluation and agent infrastructure</span> to prove it works, and shipping <span className="text-[#8b5cf6]">production software</span> around it. I also own a production Next.js site end to end and build LLM applications such as QueryForge.
+                                I build <span className="text-[#00d4ff]">evaluation harnesses and agentic job infrastructure</span>, and I ship <span className="text-[#8b5cf6]">production software</span>: I built and actively maintain a Next.js website serving about 3,200 visitors a month, and built QueryForge, a schema-aware natural-language-to-SQL application.
                             </p>
                         </div>
 
@@ -108,7 +108,7 @@ const About = () => {
                                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                                     transition={{ delay: 0.5 + i * 0.1 }}
                                     whileHover={{ scale: 1.03 }}
-                                    className="glass rounded-xl p-5 border border-white/5 hover:border-[#00d4ff]/20 transition-all duration-300 text-center group"
+                                    className={`glass rounded-xl p-5 border border-white/5 hover:border-[#00d4ff]/20 transition-all duration-300 text-center group ${statItems.length % 2 && i === statItems.length - 1 ? "col-span-2" : ""}`}
                                 >
                                     <div className="text-3xl mb-2">{stat.icon}</div>
                                     <div className="font-display text-3xl font-black gradient-text mb-1">{stat.value}</div>
