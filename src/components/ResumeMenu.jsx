@@ -80,6 +80,17 @@ const ResumeMenu = ({ resumes }) => {
     const [open, setOpen] = useState(false);
     const [preview, setPreview] = useState(null);
     const closePreview = useCallback(() => setPreview(null), []);
+    const [openUp, setOpenUp] = useState(false);
+    const MENU_HEIGHT = 190; // approximate height of the open menu, px
+
+    const toggleMenu = () => {
+        if (!open && ref.current) {
+            // Open upward when there isn't room below the button
+            const { bottom } = ref.current.getBoundingClientRect();
+            setOpenUp(window.innerHeight - bottom < MENU_HEIGHT + 16);
+        }
+        setOpen((o) => !o);
+    };
     const ref = useRef(null);
 
     // Close the menu on outside click or Escape
@@ -103,24 +114,24 @@ const ResumeMenu = ({ resumes }) => {
                 type="button"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setOpen((o) => !o)}
+                onClick={toggleMenu}
                 aria-haspopup="menu"
                 aria-expanded={open}
                 className="btn-outline-cyber flex items-center gap-2"
             >
                 <FaFilePdf className="text-xs" /> Resume
-                <FaChevronDown className={`text-[10px] transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+                <FaChevronDown className={`text-[10px] transition-transform duration-200 ${open !== openUp ? "rotate-180" : ""}`} />
             </motion.button>
 
             <AnimatePresence>
                 {open && (
                     <motion.div
                         role="menu"
-                        initial={{ opacity: 0, y: -6 }}
+                        initial={{ opacity: 0, y: openUp ? 6 : -6 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -6 }}
+                        exit={{ opacity: 0, y: openUp ? 6 : -6 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute left-0 top-full mt-2 z-30 w-72 rounded-xl bg-[#11111f] border border-white/10 shadow-xl shadow-black/50 p-1.5"
+                        className={`absolute left-0 ${openUp ? "bottom-full mb-2" : "top-full mt-2"} z-30 w-80 rounded-xl bg-[#11111f] border border-white/10 shadow-xl shadow-black/50 p-1.5`}
                     >
                         <p className="px-3 pt-2 pb-1 font-mono text-[10px] uppercase tracking-widest text-gray-500">
                             Choose a version to preview
