@@ -15,7 +15,7 @@ const About = () => {
             {/* Background */}
             <div className="absolute inset-0 bg-[#0d0d1a]" />
             <div className="absolute inset-0 cyber-grid-bg opacity-20" />
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d4ff]/30 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
 
             <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
@@ -27,7 +27,7 @@ const About = () => {
                 >
                     <p className="font-mono text-[#00d4ff] text-sm uppercase tracking-widest mb-3">01 / About</p>
                     <h2 className="section-heading">About Me</h2>
-                    <div className="w-24 h-px mx-auto bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent mt-4" />
+                    <div className="w-24 h-px mx-auto bg-[#00d4ff] mt-4" />
                 </motion.div>
 
                 <div className="grid lg:grid-cols-2 gap-16 items-start">

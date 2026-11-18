@@ -17,7 +17,7 @@ const Skills = () => {
         <section id="skills" className="relative py-24 overflow-hidden">
             <div className="absolute inset-0 bg-[#0a0a14]" />
             <div className="absolute inset-0 cyber-grid-bg opacity-20" />
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#8b5cf6]/30 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
 
             <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
@@ -29,7 +29,7 @@ const Skills = () => {
                 >
                     <p className="font-mono text-[#8b5cf6] text-sm uppercase tracking-widest mb-3">02 / Skills</p>
                     <h2 className="section-heading">Skills</h2>
-                    <div className="w-24 h-px mx-auto bg-gradient-to-r from-transparent via-[#8b5cf6] to-transparent mt-4" />
+                    <div className="w-24 h-px mx-auto bg-[#8b5cf6] mt-4" />
                 </motion.div>
 
                 {/* Filter Tabs */}

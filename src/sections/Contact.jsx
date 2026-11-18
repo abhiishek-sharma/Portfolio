@@ -66,8 +66,8 @@ const Contact = () => {
         <section id="contact" className="relative py-24 overflow-hidden">
             <div className="absolute inset-0 bg-[#0a0a14]" />
             <div className="absolute inset-0 cyber-grid-bg opacity-20" />
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d4ff]/30 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#8b5cf6]/30 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-white/5" />
 
             <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
@@ -78,7 +78,7 @@ const Contact = () => {
                 >
                     <p className="font-mono text-[#00d4ff] text-sm uppercase tracking-widest mb-3">06 / Contact</p>
                     <h2 className="section-heading">Get In Touch</h2>
-                    <div className="w-24 h-px mx-auto bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent mt-4" />
+                    <div className="w-24 h-px mx-auto bg-[#00d4ff] mt-4" />
                     <p className="text-gray-400 mt-4 max-w-lg mx-auto">
                         Hiring for GenAI, LLM evaluation or forward deployed roles? I'd like to hear from you.
                     </p>

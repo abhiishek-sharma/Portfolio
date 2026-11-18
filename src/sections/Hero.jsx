@@ -95,11 +95,8 @@ const Hero = () => {
             className="relative min-h-screen flex items-center justify-center overflow-hidden"
         >
             {/* ── Backgrounds ─────────────────────── */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,#1a1a2e,#0d0d1a_70%)]" />
+            <div className="absolute inset-0 bg-[#0d0d1a]" />
             <div className="absolute inset-0 cyber-grid-bg opacity-30" />
-            <div className="absolute top-1/4 -left-48 w-[500px] h-[500px] rounded-full bg-[#00d4ff]/4 blur-3xl" />
-            <div className="absolute bottom-1/4 -right-48 w-[500px] h-[500px] rounded-full bg-[#8b5cf6]/4 blur-3xl" style={{ animationDelay: "2s" }} />
-            <div className="scan-line" />
 
             {/* ── Main grid ───────────────────────── */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
@@ -238,11 +235,6 @@ const Hero = () => {
                     >
                         {/* Photo Frame */}
                         <div className="relative">
-                            {/* Outer atmosphere glow */}
-                            <div
-                                className="absolute -inset-8 rounded-full blur-2xl opacity-20 transition-all duration-700"
-                                style={{ background: `radial-gradient(circle, ${mood.color}, transparent 70%)` }}
-                            />
 
                             {/* Spinning decorative rings */}
                             <div className="absolute -inset-4 rounded-full border border-dashed pointer-events-none" style={{ borderColor: `${mood.color}40` }} />
@@ -294,9 +286,6 @@ const Hero = () => {
                                         </p>
                                     </div>
                                 )}
-
-                                {/* Subtle scan line on hover */}
-                                <div className="absolute inset-x-0 top-0 h-full bg-gradient-to-b from-transparent via-white/2 to-transparent pointer-events-none" />
                             </motion.div>                        </div>                    </motion.div>
                 </div>
 

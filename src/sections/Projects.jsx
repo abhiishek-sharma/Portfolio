@@ -19,7 +19,7 @@ const Projects = () => {
         <section id="projects" className="relative py-24 overflow-hidden">
             <div className="absolute inset-0 bg-[#0a0a14]" />
             <div className="absolute inset-0 cyber-grid-bg opacity-20" />
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ff006e]/30 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
 
             <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
@@ -31,7 +31,7 @@ const Projects = () => {
                 >
                     <p className="font-mono text-[#ff006e] text-sm uppercase tracking-widest mb-3">04 / Projects</p>
                     <h2 className="section-heading">Projects</h2>
-                    <div className="w-24 h-px mx-auto bg-gradient-to-r from-transparent via-[#ff006e] to-transparent mt-4" />
+                    <div className="w-24 h-px mx-auto bg-[#ff006e] mt-4" />
                 </motion.div>
 
                 {/* Filter */}
@@ -85,7 +85,7 @@ const Projects = () => {
                                     }
                                 >
                                     {/* Gradient Header */}
-                                    <div className={`relative h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
+                                    <div className={`relative h-48 bg-[#151528] border-b border-white/5 flex items-center justify-center overflow-hidden`}>
                                         {/* Overlay grid */}
                                         <div className="absolute inset-0 cyber-grid-bg opacity-30" />
                                         {/* Featured badge */}
@@ -123,7 +123,7 @@ const Projects = () => {
                                         </div>
 
                                         {/* Links */}
-                                        <div className="flex gap-3 mt-auto pt-4 border-t border-white/5">
+                                        <div className={`flex gap-3 mt-auto ${project.github || project.live ? "pt-4 border-t border-white/5" : "hidden"}`}>
                                             {project.github && (
                                             <a
                                                 href={project.github}
