@@ -2,6 +2,7 @@
 // Responsive navigation with scroll detection and mobile menu
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { scrollToSection } from "../lib/smoothScroll";
 
 const navItems = [
     { id: "home", label: "Home" },
@@ -40,10 +41,7 @@ const Navbar = () => {
     }, []);
 
     const scrollTo = (id) => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth" });
-        }
+        scrollToSection(id === "home" ? "top" : id);
         setMobileOpen(false);
     };
 

@@ -4,6 +4,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import portfolioData from "../config/portfolioData";
+import CountUp from "../components/reactbits/CountUp";
 
 const About = () => {
     const ref = useRef(null);
@@ -111,7 +112,16 @@ const About = () => {
                                     className={`glass rounded-xl p-5 border border-white/5 hover:border-[#00d4ff]/20 transition-all duration-300 text-center group ${statItems.length % 2 && i === statItems.length - 1 ? "col-span-2" : ""}`}
                                 >
                                     <div className="text-3xl mb-2">{stat.icon}</div>
-                                    <div className="font-display text-3xl font-black gradient-text mb-1">{stat.value}</div>
+                                    <div className="font-display text-3xl font-black text-[#00d4ff] mb-1">
+                                        <CountUp
+                                            to={stat.to}
+                                            separator={stat.separator || ""}
+                                            suffix={stat.suffix || ""}
+                                            decimals={stat.decimals}
+                                            duration={1.6}
+                                            delay={0.2 + i * 0.1}
+                                        />
+                                    </div>
                                     <div className="text-gray-500 text-xs font-mono">{stat.label}</div>
                                 </motion.div>
                             ))}

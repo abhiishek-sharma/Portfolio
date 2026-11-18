@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // Layout
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import MatrixRain from "./components/MatrixRain";
+import { startSmoothScroll, scrollToSection } from "./lib/smoothScroll";
 
 // Sections
 import Hero from "./sections/Hero";
@@ -104,7 +104,7 @@ const ScrollToTop = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => scrollToSection("top")}
           className="fixed bottom-24 right-6 z-40 w-10 h-10 rounded-xl glass border border-[#00d4ff]/30 flex items-center justify-center text-[#00d4ff] hover:bg-[#00d4ff]/10 transition-all duration-300"
           title="Back to top"
         >
@@ -121,6 +121,12 @@ const ScrollToTop = () => {
 function App() {
   const [loading, setLoading] = useState(true);
 
+  // Smooth scrolling (Lenis + GSAP ticker) once the loader is gone
+  useEffect(() => {
+    if (loading) return undefined;
+    return startSmoothScroll();
+  }, [loading]);
+
   return (
     <>
       {/* Loading Screen */}
@@ -132,9 +138,6 @@ function App() {
         <>
           {/* Noise texture (subtle) */}
           <div className="noise-overlay" />
-
-          {/* Matrix rain in background */}
-          <MatrixRain />
 
           {/* Navigation */}
           <Navbar />

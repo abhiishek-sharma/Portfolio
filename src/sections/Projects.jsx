@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import portfolioData from "../config/portfolioData";
+import SpotlightCard from "../components/reactbits/SpotlightCard";
 
 const categories = ["All", ...new Set(portfolioData.projects.map((p) => p.category))];
 
@@ -75,14 +76,12 @@ const Projects = () => {
                                 onMouseLeave={() => setHoveredIndex(null)}
                                 className="relative group"
                             >
-                                <div
-                                    className={`glass rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 h-full flex flex-col ${hoveredIndex === index ? "border-white/20 shadow-2xl shadow-black/50" : ""
-                                        } ${project.featured ? "ring-1 ring-[#00d4ff]/20" : ""}`}
-                                    style={
-                                        hoveredIndex === index
-                                            ? { transform: "translateY(-8px)", boxShadow: "0 30px 60px rgba(0,0,0,0.5)" }
-                                            : {}
-                                    }
+                                <SpotlightCard
+                                    className={`h-full flex flex-col !p-0 !rounded-2xl transition-transform duration-500 ${hoveredIndex === index ? "-translate-y-2" : ""} ${project.featured ? "ring-1 ring-[#00d4ff]/20" : ""}`}
+                                    style={{ "--spotlight-card-surface": "#11111f" }}
+                                    spotlightColor="rgba(0, 212, 255, 0.55)"
+                                    intensity={0.12}
+                                    borderGlow={0.5}
                                 >
                                     {/* Gradient Header */}
                                     <div className={`relative h-48 bg-[#151528] border-b border-white/5 flex items-center justify-center overflow-hidden`}>
@@ -94,8 +93,20 @@ const Projects = () => {
                                                 FEATURED
                                             </div>
                                         )}
-                                        {/* Main emoji */}
-                                        <div className="text-7xl float-animation">{project.emoji}</div>
+                                        {/* Showcase video (e.g. exported from animos.app) or emoji */}
+                                        {project.video ? (
+                                            <video
+                                                src={project.video}
+                                                className="absolute inset-0 w-full h-full object-cover"
+                                                autoPlay
+                                                muted
+                                                loop
+                                                playsInline
+                                                preload="metadata"
+                                            />
+                                        ) : (
+                                            <div className="text-7xl float-animation">{project.emoji}</div>
+                                        )}
                                         {/* Scan line on hover */}
                                         <div
                                             className={`absolute inset-x-0 h-px bg-white/30 transition-all duration-500 ${hoveredIndex === index ? "top-0 animate-scan" : "hidden"
@@ -148,7 +159,7 @@ const Projects = () => {
                                             )}
                                         </div>
                                     </div>
-                                </div>
+                                </SpotlightCard>
                             </motion.div>
                         ))}
                     </motion.div>

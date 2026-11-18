@@ -5,7 +5,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import portfolioData from "../config/portfolioData";
+import VantaNet from "../components/VantaNet";
+import SplitText from "../components/reactbits/SplitText";
+import { scrollToSection, prefersReducedMotion } from "../lib/smoothScroll";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 // ============================================================
 // PROFILE MOODS ─ user switches between vibe/look presets
@@ -66,7 +75,6 @@ const MOODS = [
 const Hero = () => {
     const { personal } = portfolioData;
     const mood = MOODS[0];
-    const [glitchOn, setGlitchOn] = useState(false);
     const [imgError, setImgError] = useState(false);
 
     // Apply global theme color changes when mood changes
@@ -75,35 +83,35 @@ const Hero = () => {
         document.documentElement.style.setProperty("--cyber-purple", mood.theme.secondary);
     }, [mood]);
 
-    // Periodic name-glitch
-    useEffect(() => {
-        const t = setInterval(() => {
-            setGlitchOn(true);
-            setTimeout(() => setGlitchOn(false), 180);
-        }, 6000);
-        return () => clearInterval(t);
-    }, []);
-
     const typingSeq = personal.roles.flatMap((r) => [r, 2200]);
 
-    const scrollTo = (id) =>
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const scrollTo = scrollToSection;
+    const sectionRef = useRef(null);
+
+    // As the hero scrolls away, drift the text and photo apart and fade them out.
+    useGSAP(() => {
+        if (prefersReducedMotion()) return;
+        const st = { trigger: sectionRef.current, start: "top top", end: "bottom top", scrub: true };
+        gsap.to(".hero-text", { y: -80, opacity: 0, ease: "none", scrollTrigger: st });
+        gsap.to(".hero-photo", { y: 60, opacity: 0, ease: "none", scrollTrigger: { ...st } });
+    }, { scope: sectionRef });
 
     return (
         <section
             id="home"
+            ref={sectionRef}
             className="relative min-h-screen flex items-center justify-center overflow-hidden"
         >
             {/* ── Backgrounds ─────────────────────── */}
             <div className="absolute inset-0 bg-[#0d0d1a]" />
-            <div className="absolute inset-0 cyber-grid-bg opacity-30" />
+            <VantaNet className="absolute inset-0 opacity-40" />
 
             {/* ── Main grid ───────────────────────── */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
 
                     {/* ══ LEFT — Text ══════════════════════════════════ */}
-                    <div className="text-center lg:text-left order-2 lg:order-1">
+                    <div className="hero-text text-center lg:text-left order-2 lg:order-1">
 
                         {/* Status badge */}
                         <motion.div
@@ -126,12 +134,16 @@ const Hero = () => {
                         >
                             <span className="text-white">I'm</span>
                             <br />
-                            <span
-                                className={`gradient-text inline-block ${glitchOn ? "opacity-80 translate-x-0.5" : ""}`}
-                                style={{ transition: "all 0.05s" }}
-                            >
-                                {personal.name}
-                            </span>
+                            <SplitText
+                                text={personal.name}
+                                tag="span"
+                                className="inline-block text-[#00d4ff]"
+                                textAlign="inherit"
+                                trigger="load"
+                                effect="rise"
+                                delay={45}
+                                duration={0.9}
+                            />
                         </motion.h1>
 
                         {/* Typing role */}
@@ -234,7 +246,7 @@ const Hero = () => {
                         className="flex flex-col items-center gap-6 order-1 lg:order-2"
                     >
                         {/* Photo Frame */}
-                        <div className="relative">
+                        <div className="hero-photo relative">
 
                             {/* Spinning decorative rings */}
                             <div className="absolute -inset-4 rounded-full border border-dashed pointer-events-none" style={{ borderColor: `${mood.color}40` }} />

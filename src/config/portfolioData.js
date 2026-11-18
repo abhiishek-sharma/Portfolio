@@ -25,9 +25,9 @@ export const portfolioData = {
 
     // Headline numbers, all taken from the resumes
     stats: [
-        { value: "2,000+", label: "AI training & evaluation tasks delivered", icon: "🧪" },
-        { value: "24h+", label: "Long-running agentic jobs operated", icon: "🤖" },
-        { value: "3.2K", label: "Monthly visitors on a production site I maintain", icon: "🌐" },
+        { to: 2000, separator: ",", suffix: "+", label: "AI training & evaluation tasks delivered", icon: "🧪" },
+        { to: 24, suffix: "h+", label: "Long-running agentic jobs operated", icon: "🤖" },
+        { to: 3.2, decimals: 1, suffix: "K", label: "Monthly visitors on a production site I maintain", icon: "🌐" },
     ],
 
     // Skills, merged from all three resumes
@@ -157,7 +157,8 @@ export const portfolioData = {
         },
     ],
 
-    // Projects — real, verifiable, with accurate live/github links
+    // Projects — real, verifiable, with accurate live/github links.
+    // Optional `video: "/showcase/name.mp4"` plays a showcase clip (e.g. from animos.app) in the card header.
     projects: [
         {
             name: "QueryForge",
