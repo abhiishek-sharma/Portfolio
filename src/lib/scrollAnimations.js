@@ -1,6 +1,7 @@
-// Scroll-driven animations (GSAP ScrollTrigger + SplitText). Almost everything is
-// scrubbed: it moves with the scrollbar, forwards and backwards, rather than
-// playing once. Lenis keeps ScrollTrigger in sync (see smoothScroll.js).
+// Scroll-driven animations (GSAP ScrollTrigger + SplitText). Everything is
+// scrubbed directly to scroll position (scrub: true; Lenis already smooths the
+// scroll, so extra scrub lag makes elements trail then rush), and travel
+// distances are kept small so nothing outruns the page. Lenis keeps ScrollTrigger in sync (see smoothScroll.js).
 // The pinned hero lives in Hero.jsx.
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -32,17 +33,17 @@ export function startScrollAnimations() {
         // Hero: pinned for one screen while the text lifts away and the photo
         // shrinks and tilts out
         gsap.timeline({
-            scrollTrigger: { trigger: "#home", start: "top top", end: "+=100%", pin: true, scrub: 1 },
+            scrollTrigger: { trigger: "#home", start: "top top", end: "+=100%", pin: true, scrub: true },
         })
-            .to(".hero-text", { y: -160, opacity: 0, ease: "power1.in" }, 0)
-            .to(".hero-photo", { scale: 0.55, y: 80, opacity: 0, ease: "power1.in" }, 0)
+            .to(".hero-text", { y: -60, opacity: 0, ease: "power1.in" }, 0)
+            .to(".hero-photo", { scale: 0.75, y: 30, opacity: 0, ease: "power1.in" }, 0)
             .to(".hero-bg", { scale: 1.25, opacity: 0, ease: "none" }, 0);
 
         // Page progress bar
         gsap.to("#scroll-progress", {
             scaleX: 1,
             ease: "none",
-            scrollTrigger: { start: 0, end: "max", scrub: 0.3 },
+            scrollTrigger: { start: 0, end: "max", scrub: true },
         });
 
         // Marquee rows slide in opposite directions
@@ -54,7 +55,7 @@ export function startScrollAnimations() {
                 {
                     xPercent: dir > 0 ? 0 : -35,
                     ease: "none",
-                    scrollTrigger: { trigger: ".marquee", start: "top bottom", end: "bottom top", scrub: 0.5 },
+                    scrollTrigger: { trigger: ".marquee", start: "top bottom", end: "bottom top", scrub: true },
                 }
             );
         });
@@ -66,9 +67,9 @@ export function startScrollAnimations() {
             const label = header.querySelector("p");
             const underline = header.querySelector(".w-24.h-px");
             const tl = gsap.timeline({
-                scrollTrigger: { trigger: header, start: "top 90%", end: "top 45%", scrub: 0.6 },
+                scrollTrigger: { trigger: header, start: "top 90%", end: "top 45%", scrub: true },
             });
-            if (label) tl.from(label, { y: 30, opacity: 0, ease: "power2.out" }, 0);
+            if (label) tl.from(label, { y: 16, opacity: 0, ease: "none" }, 0);
             tl.from(split.chars, { yPercent: 110, stagger: 0.04, ease: "power3.out" }, 0.05);
             if (underline) tl.from(underline, { scaleX: 0, ease: "power2.out" }, 0.3);
         });
@@ -91,10 +92,10 @@ export function startScrollAnimations() {
         // About & Contact columns slide in from their sides
         gsap.utils.toArray("[data-anim=from-left], [data-anim=from-right]").forEach((col) => {
             gsap.from(col, {
-                x: col.dataset.anim === "from-left" ? -140 : 140,
+                x: col.dataset.anim === "from-left" ? -50 : 50,
                 opacity: 0,
-                ease: "power2.out",
-                scrollTrigger: { trigger: col, start: "top 95%", end: "top 55%", scrub: 0.8 },
+                ease: "none",
+                scrollTrigger: { trigger: col, start: "top 95%", end: "top 55%", scrub: true },
             });
         });
 
@@ -102,17 +103,17 @@ export function startScrollAnimations() {
         gsap.utils.toArray("#skills .glass.rounded-2xl").forEach((card, i) => {
             const side = i % 2 ? 1 : -1;
             gsap.from(card, {
-                x: 160 * side,
+                x: 60 * side,
                 opacity: 0,
-                ease: "power2.out",
-                scrollTrigger: { trigger: card, start: "top 100%", end: "top 60%", scrub: 0.8 },
+                ease: "none",
+                scrollTrigger: { trigger: card, start: "top 100%", end: "top 60%", scrub: true },
             });
             gsap.from(card.querySelectorAll(".flex-wrap > span"), {
                 scale: 0.4,
                 opacity: 0,
                 stagger: 0.06,
                 ease: "back.out(2)",
-                scrollTrigger: { trigger: card, start: "top 80%", end: "top 45%", scrub: 0.6 },
+                scrollTrigger: { trigger: card, start: "top 80%", end: "top 45%", scrub: true },
             });
         });
 
@@ -125,11 +126,11 @@ export function startScrollAnimations() {
         });
         gsap.utils.toArray("#experience ul").forEach((list) => {
             gsap.from(list.querySelectorAll("li"), {
-                x: -60,
+                x: -24,
                 opacity: 0,
                 stagger: 0.15,
-                ease: "power2.out",
-                scrollTrigger: { trigger: list, start: "top 92%", end: "top 55%", scrub: 0.6 },
+                ease: "none",
+                scrollTrigger: { trigger: list, start: "top 92%", end: "top 55%", scrub: true },
             });
         });
 
@@ -142,10 +143,10 @@ export function startScrollAnimations() {
                 .filter((el) => !el.closest("[data-anim]"))
                 .forEach((card) => {
                     gsap.from(card, {
-                        y: 120,
+                        y: 30,
                         opacity: 0,
-                        ease: "power2.out",
-                        scrollTrigger: { trigger: card, start: "top 100%", end: "top 65%", scrub: 0.8 },
+                        ease: "none",
+                        scrollTrigger: { trigger: card, start: "top 100%", end: "top 65%", scrub: true },
                     });
                 });
         });
@@ -164,7 +165,7 @@ export function startScrollAnimations() {
                 start: "top top",
                 end: () => `+=${distance()}`,
                 pin: true,
-                scrub: 1,
+                scrub: true,
                 invalidateOnRefresh: true,
             },
         });
@@ -187,10 +188,10 @@ export function startScrollAnimations() {
     mm.add("(max-width: 1023px)", () => {
         gsap.utils.toArray(".project-card").forEach((card) => {
             gsap.from(card, {
-                y: 100,
+                y: 30,
                 opacity: 0,
-                ease: "power2.out",
-                scrollTrigger: { trigger: card, start: "top 100%", end: "top 65%", scrub: 0.8 },
+                ease: "none",
+                scrollTrigger: { trigger: card, start: "top 100%", end: "top 65%", scrub: true },
             });
         });
     });
