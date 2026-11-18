@@ -26,9 +26,7 @@ const buildCommands = (data) => ({
             { t: "out", v: "  skills            Technical skill set" },
             { t: "out", v: "  projects          Featured projects" },
             { t: "out", v: "  experience        Work history" },
-            { t: "out", v: "  certifications    Certificates & badges" },
             { t: "out", v: "  education         Academic background" },
-            { t: "out", v: "  hobbies           Interests & hobbies" },
             { t: "out", v: "  contact           Contact details" },
             { t: "out", v: "  resume            Download resume PDF" },
             { t: "out", v: "  whoami            Identity info" },
@@ -56,20 +54,13 @@ const buildCommands = (data) => ({
     },
 
     skills: {
-        description: "Show technical skills with progress bars",
+        description: "Show technical skills",
         run: () => [
             { t: "info", v: "━━━ TECH SKILLS ━━━" },
             { t: "blank", v: "" },
             ...data.skills.flatMap((cat) => [
                 { t: "warn", v: `  ${cat.icon}  ${cat.category.toUpperCase()}` },
-                ...cat.items.map((s) => {
-                    const filled = Math.round(s.level / 10);
-                    const empty = 10 - filled;
-                    return {
-                        t: "out",
-                        v: `    ${s.name.padEnd(22)} ${"█".repeat(filled)}${"░".repeat(empty)}  ${s.level}%`,
-                    };
-                }),
+                ...cat.items.map((s) => ({ t: "out", v: `    • ${s}` })),
                 { t: "blank", v: "" },
             ]),
         ],
@@ -82,7 +73,7 @@ const buildCommands = (data) => ({
             { t: "blank", v: "" },
             ...data.projects.map((p) => ({
                 t: "out",
-                v: `  ${p.emoji}  ${p.name.padEnd(22)} [${p.category.padEnd(16)}]  ⭐ ${p.stars}`,
+                v: `  ${p.emoji}  ${p.name.padEnd(22)} [${p.category.padEnd(16)}]`,
             })),
             { t: "blank", v: "" },
             { t: "tip", v: "  Visit GitHub to explore all repositories" },
@@ -106,20 +97,6 @@ const buildCommands = (data) => ({
         ],
     },
 
-    certifications: {
-        description: "Show certifications",
-        run: () => [
-            { t: "info", v: "━━━ CERTIFICATIONS ━━━" },
-            { t: "blank", v: "" },
-            ...data.certifications.map((c) => ({
-                t: "out",
-                v: `  ${c.icon}  ${c.name.padEnd(42)}  ${c.issuer}  (${c.date})`,
-            })),
-            { t: "blank", v: "" },
-            { t: "success", v: "  ✓ All certifications verified" },
-        ],
-    },
-
     education: {
         description: "Show education history",
         run: () => [
@@ -135,31 +112,17 @@ const buildCommands = (data) => ({
         ],
     },
 
-    hobbies: {
-        description: "Show hobbies and interests",
-        run: () => [
-            { t: "info", v: "━━━ HOBBIES & INTERESTS ━━━" },
-            { t: "blank", v: "" },
-            ...data.hobbies.map((h) => ({
-                t: "out",
-                v: `  ${h.icon}  ${h.name.padEnd(22)}  ${h.description}`,
-            })),
-        ],
-    },
-
     contact: {
         description: "Show contact details",
         run: () => [
             { t: "info", v: "━━━ CONTACT INFORMATION ━━━" },
             { t: "blank", v: "" },
             { t: "out", v: `  📧  Email     :  ${data.contact.email}` },
-            { t: "out", v: `  📱  Phone     :  ${data.contact.phone}` },
             { t: "out", v: `  📍  Location  :  ${data.contact.location}` },
             { t: "blank", v: "" },
             { t: "info", v: "  🔗 Social Links:" },
             { t: "out", v: `     GitHub    :  ${data.personal.github}` },
             { t: "out", v: `     LinkedIn  :  ${data.personal.linkedin}` },
-            { t: "out", v: `     Twitter   :  ${data.personal.twitter}` },
             { t: "blank", v: "" },
             { t: "success", v: `  ⚡ ${data.contact.availability}  •  Response time: ${data.contact.responseTime}` },
         ],
@@ -196,7 +159,7 @@ const buildCommands = (data) => ({
         description: "List available sections",
         run: () => [
             { t: "out", v: "  about/        skills/        projects/      experience/" },
-            { t: "out", v: "  certifications/  education/  hobbies/       contact/" },
+            { t: "out", v: "  education/    contact/" },
         ],
     },
 

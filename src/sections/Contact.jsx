@@ -1,7 +1,7 @@
 // src/sections/Contact.jsx
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaEnvelope, FaLinkedin, FaGithub, FaTwitter, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaGithub, FaMapMarkerAlt } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
 import portfolioData from "../config/portfolioData";
 
@@ -59,7 +59,6 @@ const Contact = () => {
     const socialLinks = [
         { icon: FaGithub, href: personal.github, label: "GitHub", color: "#ffffff" },
         { icon: FaLinkedin, href: personal.linkedin, label: "LinkedIn", color: "#0077b5" },
-        { icon: FaTwitter, href: personal.twitter, label: "Twitter", color: "#1da1f2" },
         { icon: FaEnvelope, href: `mailto:${personal.email}`, label: "Email", color: "#00d4ff" },
     ];
 
@@ -77,11 +76,11 @@ const Contact = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     className="text-center mb-16"
                 >
-                    <p className="font-mono text-[#00d4ff] text-sm uppercase tracking-widest mb-3">08 / Contact</p>
+                    <p className="font-mono text-[#00d4ff] text-sm uppercase tracking-widest mb-3">06 / Contact</p>
                     <h2 className="section-heading">Get In Touch</h2>
                     <div className="w-24 h-px mx-auto bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent mt-4" />
                     <p className="text-gray-400 mt-4 max-w-lg mx-auto">
-                        Have a project in mind? Let's build something extraordinary together.
+                        Hiring for GenAI, LLM evaluation or forward deployed roles? I'd like to hear from you.
                     </p>
                 </motion.div>
 
@@ -98,7 +97,6 @@ const Contact = () => {
 
                             {[
                                 { icon: FaEnvelope, label: "Email", value: contact.email, href: `mailto:${contact.email}` },
-                                { icon: FaPhone, label: "Phone", value: contact.phone, href: `tel:${contact.phone}` },
                                 { icon: FaMapMarkerAlt, label: "Location", value: contact.location, href: null },
                             ].map(({ icon: Icon, label, value, href }) => (
                                 <div key={label} className="flex items-center gap-4">

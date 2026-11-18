@@ -2,20 +2,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import portfolioData from "../config/portfolioData";
-
-const statItems = [
-    { value: "5+", label: "Years Experience", icon: "⚡" },
-    { value: "50+", label: "Projects Built", icon: "🚀" },
-    { value: "10K+", label: "NPM Downloads", icon: "📦" },
-    { value: "500+", label: "GitHub Stars", icon: "⭐" },
-];
 
 const About = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const { personal } = portfolioData;
+    const { personal, stats: statItems } = portfolioData;
 
     return (
         <section id="about" className="relative py-24 overflow-hidden">
@@ -55,10 +48,7 @@ const About = () => {
                                 {personal.bio}
                             </p>
                             <p className="text-gray-400 leading-relaxed">
-                                I specialize in building <span className="text-[#00d4ff]">scalable web applications</span> and{" "}
-                                <span className="text-[#8b5cf6]">AI-powered solutions</span> that make a real difference.
-                                From full-stack development to machine learning engineering, I bridge the gap between
-                                cutting-edge AI research and production-ready software.
+                                Alongside that I ship full-stack software: I built and maintain a <span className="text-[#00d4ff]">production Next.js website</span>, and I build <span className="text-[#8b5cf6]">local-first AI tools</span> like QueryForge that run on Ollama with no paid API.
                             </p>
                         </div>
 
@@ -66,7 +56,6 @@ const About = () => {
                         <div className="space-y-3 mb-8">
                             {[
                                 { icon: FaEnvelope, label: "Email", value: personal.email, color: "#00d4ff" },
-                                { icon: FaPhone, label: "Phone", value: personal.phone, color: "#8b5cf6" },
                                 { icon: FaMapMarkerAlt, label: "Location", value: personal.location, color: "#00ff88" },
                             ].map(({ icon: Icon, label, value, color }) => (
                                 <div key={label} className="flex items-center gap-3 text-sm">
@@ -147,7 +136,7 @@ const About = () => {
                                 <div className="pl-4">
                                     <span className="text-[#00d4ff]">"role"</span>
                                     <span className="text-gray-600">: </span>
-                                    <span className="text-[#00ff88]">"Software & AI Engineer"</span>
+                                    <span className="text-[#00ff88]">"{personal.title}"</span>
                                     <span className="text-gray-600">,</span>
                                 </div>
                                 <div className="pl-4">

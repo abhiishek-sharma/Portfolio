@@ -3,27 +3,6 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import portfolioData from "../config/portfolioData";
 
-const SkillBar = ({ name, level, years, color, index, visible }) => (
-    <div className="mb-4 group">
-        <div className="flex justify-between items-center mb-1.5">
-            <div className="flex items-center gap-2">
-                <span className="text-gray-300 font-mono text-sm">{name}</span>
-                <span className="text-xs font-mono text-gray-600">{years}y</span>
-            </div>
-            <span className="font-mono text-xs font-bold" style={{ color }}>{level}%</span>
-        </div>
-        <div className="progress-bar">
-            <motion.div
-                className="progress-fill"
-                style={{ background: `linear-gradient(90deg, ${color}cc, ${color})`, boxShadow: `0 0 8px ${color}80` }}
-                initial={{ width: 0 }}
-                animate={visible ? { width: `${level}%` } : { width: 0 }}
-                transition={{ duration: 1.2, delay: index * 0.1, ease: "easeOut" }}
-            />
-        </div>
-    </div>
-);
-
 const Skills = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -49,7 +28,7 @@ const Skills = () => {
                     className="text-center mb-16"
                 >
                     <p className="font-mono text-[#8b5cf6] text-sm uppercase tracking-widest mb-3">02 / Skills</p>
-                    <h2 className="section-heading">Technical Arsenal</h2>
+                    <h2 className="section-heading">Skills</h2>
                     <div className="w-24 h-px mx-auto bg-gradient-to-r from-transparent via-[#8b5cf6] to-transparent mt-4" />
                 </motion.div>
 
@@ -94,42 +73,25 @@ const Skills = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-display font-bold text-sm text-white">{category.category}</h3>
-                                    <p className="text-xs font-mono text-gray-600">{category.items.length} skills</p>
+                                    
                                 </div>
                             </div>
 
-                            {/* Skill Bars */}
-                            <div>
-                                {category.items.map((skill, i) => (
-                                    <SkillBar
-                                        key={skill.name}
-                                        {...skill}
-                                        color={category.color}
-                                        index={i}
-                                        visible={isInView}
-                                    />
+                            {/* Skill chips */}
+                            <div className="flex flex-wrap gap-2">
+                                {category.items.map((skill) => (
+                                    <span
+                                        key={skill}
+                                        className="px-3 py-1.5 rounded-lg font-mono text-xs text-gray-300"
+                                        style={{ background: `${category.color}10`, border: `1px solid ${category.color}30` }}
+                                    >
+                                        {skill}
+                                    </span>
                                 ))}
                             </div>
                         </motion.div>
                     ))}
                 </div>
-
-                {/* Tech cloud footer */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : {}}
-                    transition={{ delay: 0.8 }}
-                    className="mt-16 text-center"
-                >
-                    <p className="font-mono text-xs text-gray-600 mb-4">// Also familiar with</p>
-                    <div className="flex flex-wrap justify-center gap-3">
-                        {["Redis", "MongoDB", "Elasticsearch", "WebSockets", "gRPC", "Prometheus", "Grafana", "Nginx", "Vim/NeoVim", "Git"].map(
-                            (tech) => (
-                                <span key={tech} className="skill-tag">{tech}</span>
-                            )
-                        )}
-                    </div>
-                </motion.div>
             </div>
         </section>
     );

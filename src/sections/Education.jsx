@@ -21,7 +21,7 @@ const Education = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     className="text-center mb-16"
                 >
-                    <p className="font-mono text-[#00ff88] text-sm uppercase tracking-widest mb-3">06 / Education</p>
+                    <p className="font-mono text-[#00ff88] text-sm uppercase tracking-widest mb-3">05 / Education</p>
                     <h2 className="section-heading">Education</h2>
                     <div className="w-24 h-px mx-auto bg-gradient-to-r from-transparent via-[#00ff88] to-transparent mt-4" />
                 </motion.div>

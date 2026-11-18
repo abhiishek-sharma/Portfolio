@@ -1,10 +1,10 @@
 // src/sections/Projects.jsx
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt, FaStar } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import portfolioData from "../config/portfolioData";
 
-const categories = ["All", "AI", "Dev Tool", "ML", "DevOps", "Computer Vision"];
+const categories = ["All", ...new Set(portfolioData.projects.map((p) => p.category))];
 
 const Projects = () => {
     const ref = useRef(null);
@@ -30,7 +30,7 @@ const Projects = () => {
                     className="text-center mb-12"
                 >
                     <p className="font-mono text-[#ff006e] text-sm uppercase tracking-widest mb-3">04 / Projects</p>
-                    <h2 className="section-heading">Featured Projects</h2>
+                    <h2 className="section-heading">Projects</h2>
                     <div className="w-24 h-px mx-auto bg-gradient-to-r from-transparent via-[#ff006e] to-transparent mt-4" />
                 </motion.div>
 
@@ -94,11 +94,6 @@ const Projects = () => {
                                                 FEATURED
                                             </div>
                                         )}
-                                        {/* Stars */}
-                                        <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-black/40 text-xs font-mono text-yellow-400">
-                                            <FaStar className="text-xs" />
-                                            {project.stars}
-                                        </div>
                                         {/* Main emoji */}
                                         <div className="text-7xl float-animation">{project.emoji}</div>
                                         {/* Scan line on hover */}
@@ -129,6 +124,7 @@ const Projects = () => {
 
                                         {/* Links */}
                                         <div className="flex gap-3 mt-auto pt-4 border-t border-white/5">
+                                            {project.github && (
                                             <a
                                                 href={project.github}
                                                 target="_blank"
@@ -138,6 +134,7 @@ const Projects = () => {
                                                 <FaGithub className="group-hover/link:text-[#00d4ff]" />
                                                 Code
                                             </a>
+                                            )}
                                             {project.live && (
                                                 <a
                                                     href={project.live}
@@ -165,7 +162,7 @@ const Projects = () => {
                     className="text-center mt-12"
                 >
                     <a
-                        href="https://github.com/Abhishek01454"
+                        href={portfolioData.personal.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-3 btn-outline-cyber"

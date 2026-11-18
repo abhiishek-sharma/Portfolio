@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import { FaGithub, FaLinkedin, FaTwitter, FaDownload, FaTerminal, FaCamera } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaDownload, FaTerminal } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
 import portfolioData from "../config/portfolioData";
 
@@ -261,7 +261,6 @@ const Hero = ({ onTerminalOpen }) => {
                             {[
                                 { icon: FaGithub, href: personal.github, label: "GitHub", hover: "hover:text-white" },
                                 { icon: FaLinkedin, href: personal.linkedin, label: "LinkedIn", hover: "hover:text-blue-400" },
-                                { icon: FaTwitter, href: personal.twitter, label: "Twitter", hover: "hover:text-sky-400" },
                             ].map(({ icon: Icon, href, label, hover }) => (
                                 <motion.a
                                     key={label}
@@ -388,16 +387,6 @@ const Hero = ({ onTerminalOpen }) => {
                                     onClick={() => setMood(m)}
                                 />
                             ))}
-                        </div>
-
-                        {/* Photo upload hint */}
-                        <div className="flex items-center gap-2 font-mono text-xs text-gray-700 text-center">
-                            <FaCamera className="text-gray-800" />
-                            <span>
-                                Set{" "}
-                                <code className="text-[#00d4ff]/50">personal.photoUrl</code>{" "}
-                                in portfolioData.js
-                            </span>
                         </div>
                     </motion.div>
                 </div>

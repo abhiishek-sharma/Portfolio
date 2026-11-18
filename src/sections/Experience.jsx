@@ -7,6 +7,7 @@ const typeColors = {
     "full-time": { bg: "#00d4ff15", border: "#00d4ff30", text: "#00d4ff" },
     volunteer: { bg: "#00ff8815", border: "#00ff8830", text: "#00ff88" },
     internship: { bg: "#8b5cf615", border: "#8b5cf630", text: "#8b5cf6" },
+    hackathon: { bg: "#ff8c0015", border: "#ff8c0030", text: "#ff8c00" },
 };
 
 const Experience = () => {
@@ -29,7 +30,7 @@ const Experience = () => {
                     className="text-center mb-16"
                 >
                     <p className="font-mono text-[#00ff88] text-sm uppercase tracking-widest mb-3">03 / Experience</p>
-                    <h2 className="section-heading">Work History</h2>
+                    <h2 className="section-heading">Experience</h2>
                     <div className="w-24 h-px mx-auto bg-gradient-to-r from-transparent via-[#00ff88] to-transparent mt-4" />
                 </motion.div>
 
