@@ -28,11 +28,11 @@ const About = () => {
                     <div className="w-24 h-px mx-auto bg-[#00d4ff] mt-4" />
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-10 items-start">
+                <div className="grid lg:grid-cols-2 gap-10 lg:items-stretch lg:min-h-[calc(100vh-270px)]">
                     {/* Left: Info */}
-                    <motion.div data-anim="from-left">
-                        <div className="glass rounded-2xl p-6 mb-5 border border-white/5">
-                            <p className="reveal-words text-gray-100 text-lg leading-relaxed mb-4">
+                    <motion.div data-anim="from-left" className="flex flex-col">
+                        <div className="glass rounded-2xl p-6 lg:p-8 mb-5 border border-white/5 lg:flex-1 lg:flex lg:flex-col lg:justify-center">
+                            <p className="reveal-words text-gray-100 text-lg lg:text-xl leading-relaxed mb-5">
                                 {personal.bio}
                             </p>
                             <p className="text-gray-400 leading-relaxed">
@@ -82,7 +82,7 @@ const About = () => {
 
                     {/* Right: Stats + Code block */}
                     <motion.div
-                        className="space-y-5"
+                        className="flex flex-col gap-5"
                     >
                         {/* Stats Grid */}
                         <div className="grid grid-cols-3 gap-3">
@@ -109,7 +109,7 @@ const About = () => {
                         </div>
 
                         {/* Code snippet card */}
-                        <div className="terminal-window">
+                        <div className="terminal-window lg:flex-1 lg:flex lg:flex-col lg:justify-center">
                             <div className="terminal-header">
                                 <div className="terminal-dot bg-red-500" />
                                 <div className="terminal-dot bg-yellow-500" />

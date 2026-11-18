@@ -19,7 +19,7 @@ const Projects = () => {
                 {/* Header */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                     <div className="text-center lg:text-left mb-12 lg:mb-10">
-                        <p className="font-mono text-[#ff006e] text-sm uppercase tracking-widest mb-3">04 / Projects</p>
+                        <p className="font-mono text-[#ff006e] text-sm uppercase tracking-widest mb-3">05 / Projects</p>
                         <h2 className="section-heading">Projects</h2>
                         <div className="w-24 h-px mx-auto lg:mx-0 bg-[#ff006e] mt-4" />
                     </div>

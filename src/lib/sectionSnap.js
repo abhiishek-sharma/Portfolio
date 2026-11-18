@@ -8,7 +8,7 @@
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getLenis, prefersReducedMotion, navigating } from "./smoothScroll";
 
-const SECTIONS = ["about", "skills", "experience", "education", "contact"];
+const SECTIONS = ["about", "skills", "experience", "contact"];
 const HOLD_MS = 650;
 
 const docTop = (el) => Math.round(el.getBoundingClientRect().top + window.scrollY);

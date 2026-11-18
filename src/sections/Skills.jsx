@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import portfolioData from "../config/portfolioData";
+import Education from "./Education";
 
 const Skills = () => {
     const ref = useRef(null);
@@ -18,7 +19,7 @@ const Skills = () => {
             <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <motion.div
-                    className="text-center mb-8 lg:mb-10"
+                    className="text-center mb-6"
                 >
                     <p className="font-mono text-[#8b5cf6] text-sm uppercase tracking-widest mb-3">02 / Skills</p>
                     <h2 className="section-heading">Skills</h2>
@@ -30,10 +31,10 @@ const Skills = () => {
                     {skills.map((category, catIndex) => (
                         <motion.div
                             key={category.category}
-                            className="glass rounded-2xl p-5 border border-white/5 hover:border-white/10 transition-all duration-300 group card-hover"
+                            className="glass rounded-2xl p-4 border border-white/5 hover:border-white/10 transition-all duration-300 group card-hover"
                         >
                             {/* Category Header */}
-                            <div className="flex items-center gap-3 mb-4 pb-3 border-b border-white/5">
+                            <div className="flex items-center gap-3 mb-3 pb-2 border-b border-white/5">
                                 <div
                                     className="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
                                     style={{ background: `${category.color}15`, border: `1px solid ${category.color}30` }}
@@ -51,7 +52,7 @@ const Skills = () => {
                                 {category.items.map((skill) => (
                                     <span
                                         key={skill}
-                                        className="px-3 py-1.5 rounded-lg font-mono text-xs text-gray-300"
+                                        className="px-2.5 py-1 rounded-lg font-mono text-xs text-gray-300"
                                         style={{ background: `${category.color}10`, border: `1px solid ${category.color}30` }}
                                     >
                                         {skill}
@@ -61,6 +62,8 @@ const Skills = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                <Education />
             </div>
         </section>
     );

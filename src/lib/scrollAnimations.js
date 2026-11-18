@@ -75,8 +75,15 @@ export function startScrollAnimations() {
             const split = SplitText.create(heading, { type: "chars", mask: "chars" });
             const label = header.querySelector("p");
             const underline = header.querySelector(".w-24.h-px");
+            // The pinned Projects section plays its heading as soon as it comes
+            // into view (time-based), so it is never still hidden while the
+            // gallery is already scrolling.
+            const pinned = header.closest("#projects");
             const tl = gsap.timeline({
-                scrollTrigger: inSection(header, "top 90%", "top 30%"),
+                defaults: pinned ? { duration: 0.7 } : undefined,
+                scrollTrigger: pinned
+                    ? { trigger: "#projects", start: "top 85%", toggleActions: "play none none reverse" }
+                    : inSection(header, "top 90%", "top 30%"),
             });
             if (label) tl.from(label, { y: 16, opacity: 0, ease: "none" }, 0);
             tl.from(split.chars, { yPercent: 110, stagger: 0.04, ease: "power3.out" }, 0.05);
@@ -109,7 +116,7 @@ export function startScrollAnimations() {
         });
 
         // Skills: cards slide in from alternating sides, chips pop in after
-        gsap.utils.toArray("#skills .glass.rounded-2xl").forEach((card, i) => {
+        gsap.utils.toArray("#skills .grid > .glass").forEach((card, i) => {
             const side = i % 2 ? 1 : -1;
             gsap.from(card, {
                 x: 60 * side,

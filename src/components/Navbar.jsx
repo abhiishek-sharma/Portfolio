@@ -8,9 +8,9 @@ const navItems = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
+    { id: "education", label: "Education" },
     { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
-    { id: "education", label: "Education" },
     { id: "contact", label: "Contact" },
 ];
 
@@ -27,13 +27,17 @@ const Navbar = () => {
             const sections = navItems.map((item) => document.getElementById(item.id));
             const scrollPos = window.scrollY + window.innerHeight / 3;
 
-            for (let i = sections.length - 1; i >= 0; i--) {
-                const section = sections[i];
-                if (section && section.getBoundingClientRect().top + window.scrollY <= scrollPos) {
-                    setActiveSection(navItems[i].id);
-                    break;
+            let active = navItems[0].id;
+            let best = -Infinity;
+            sections.forEach((section, i) => {
+                if (!section) return;
+                const top = section.getBoundingClientRect().top + window.scrollY;
+                if (top <= scrollPos && top > best) {
+                    best = top;
+                    active = navItems[i].id;
                 }
-            }
+            });
+            setActiveSection(active);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -41,7 +45,7 @@ const Navbar = () => {
     }, []);
 
     const scrollTo = (id) => {
-        scrollToSection(id === "home" ? "top" : id);
+        scrollToSection(id === "home" ? "top" : id === "education" ? "skills" : id);
         setMobileOpen(false);
     };
 
@@ -52,7 +56,7 @@ const Navbar = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                        ? "glass border-b border-white/10 shadow-2xl shadow-black/50"
+                        ? "bg-[#0d0d1a]/95 shadow-lg shadow-black/40"
                         : "bg-transparent"
                     }`}
             >

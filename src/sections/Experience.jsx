@@ -27,7 +27,7 @@ const Experience = () => {
                 <motion.div
                     className="text-center mb-8 lg:mb-10"
                 >
-                    <p className="font-mono text-[#00ff88] text-sm uppercase tracking-widest mb-3">03 / Experience</p>
+                    <p className="font-mono text-[#00ff88] text-sm uppercase tracking-widest mb-3">04 / Experience</p>
                     <h2 className="section-heading">Experience</h2>
                     <div className="w-24 h-px mx-auto bg-[#00ff88] mt-4" />
                 </motion.div>
@@ -59,7 +59,7 @@ const Experience = () => {
                                 >
                                     <motion.div
                                         whileHover={{ scale: 1.02 }}
-                                        className="glass rounded-2xl p-5 border border-white/5 hover:border-[#00d4ff]/20 transition-all duration-300"
+                                        className="glass rounded-2xl p-5 lg:p-6 border border-white/5 hover:border-[#00d4ff]/20 transition-all duration-300 lg:min-h-[calc(100vh-305px)] lg:flex lg:flex-col lg:justify-between"
                                     >
                                         {/* Header */}
                                         <div className="flex items-start justify-between flex-wrap gap-2 mb-3">

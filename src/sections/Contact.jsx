@@ -82,13 +82,13 @@ const Contact = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-12">
+                <div className="grid lg:grid-cols-2 gap-12 lg:items-stretch lg:min-h-[calc(100vh-320px)]">
                     {/* Left: Contact Info */}
                     <motion.div
                         data-anim="from-left"
-                        className="space-y-4"
+                        className="flex flex-col gap-4"
                     >
-                        <div className="glass rounded-2xl p-5 border border-white/5 space-y-4">
+                        <div className="glass rounded-2xl p-5 border border-white/5 space-y-4 lg:flex-1">
                             <h3 className="font-display font-bold text-lg text-white">Contact Information</h3>
 
                             {[
@@ -149,8 +149,8 @@ const Contact = () => {
                     </motion.div>
 
                     {/* Right: Contact Form */}
-                    <motion.div data-anim="from-right">
-                        <div className="terminal-window">
+                    <motion.div data-anim="from-right" className="flex flex-col">
+                        <div className="terminal-window lg:flex-1">
                             <div className="terminal-header">
                                 <div className="terminal-dot bg-red-500" />
                                 <div className="terminal-dot bg-yellow-500" />
@@ -169,7 +169,7 @@ const Contact = () => {
                                         <p className="text-gray-400 font-mono text-sm">I'll reply within 24 hours.</p>
                                     </motion.div>
                                 ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-4">
+                                    <form onSubmit={handleSubmit} className="space-y-3">
                                         {[
                                             { name: "name", label: "YOUR_NAME", type: "text", placeholder: "Your name" },
                                             { name: "email", label: "YOUR_EMAIL", type: "email", placeholder: "you@company.com" },
@@ -196,7 +196,7 @@ const Contact = () => {
                                                 placeholder="A few lines on the role or problem you are working on"
                                                 value={formData.message}
                                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                                rows={3}
+                                                rows={4}
                                                 className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 font-mono text-sm text-gray-300 placeholder-gray-700 focus:outline-none focus:border-[#00d4ff]/50 focus:bg-white/8 transition-all duration-300 resize-none"
                                             />
                                         </div>
