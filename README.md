@@ -23,6 +23,7 @@ gallery of projects. All the content lives in one data file.
 ![Vanta.js](https://img.shields.io/badge/Vanta.js-NET-00d4ff)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3-38bdf8?logo=tailwindcss&logoColor=white)
 ![Hosted on Vercel](https://img.shields.io/badge/hosted%20on-Vercel-000?logo=vercel&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
 
 </div>
 
@@ -159,5 +160,4 @@ Wildest-Dream/   a separate React Three Fiber experiment; not part of the deploy
 
 ## License
 
-No license file has been added yet, so default copyright applies to the code and the personal content (text, photo
-and resumes).
+MIT. See [LICENSE](LICENSE).
