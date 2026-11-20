@@ -156,4 +156,7 @@ Wildest-Dream/   a separate React Three Fiber experiment; not part of the deploy
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE). The MIT licence covers the source code only. The photo and portraits
+(`public/profile.jpg`, `public/image.png`, `Wildest-Dream/public/image.png` and `Wildest-Dream/public/avatars/*.png`)
+and the resume PDFs in `public/resumes/` are © Abhishek Sharma, all rights reserved, and not licensed for reuse.
+[NOTICE](NOTICE) lists every file.

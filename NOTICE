@@ -1,0 +1,30 @@
+Portfolio
+Copyright (c) 2026 Abhishek Sharma
+
+The MIT licence in LICENSE covers the source code in this repository only.
+
+The files listed below are not covered by the MIT licence. They are
+© Abhishek Sharma, all rights reserved, and are not licensed for reuse,
+copying, modification or redistribution.
+
+Photos and portraits of Abhishek Sharma:
+
+  public/profile.jpg
+  public/image.png
+  Wildest-Dream/public/image.png
+  Wildest-Dream/public/avatars/chill.png
+  Wildest-Dream/public/avatars/creative.png
+  Wildest-Dream/public/avatars/curious.png
+  Wildest-Dream/public/avatars/focused.png
+  Wildest-Dream/public/avatars/grind.png
+
+The same applies to the portrait where it appears in the screenshots
+under docs/images/.
+
+Resume PDFs:
+
+  public/resumes/Abhishek_Sharma_Forward_Deployed_Engineer.pdf
+  public/resumes/Abhishek_Sharma_GenAI_Engineer.pdf
+  public/resumes/Abhishek_Sharma_LLM_Evaluation_Engineer.pdf
+
+If you fork this project, replace these files with your own.
