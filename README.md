@@ -4,10 +4,6 @@
 
 **My personal site: a scroll-driven, one-page portfolio built with React, GSAP and Lenis.**
 
-Every section moves with the scrollbar instead of fading in on its own: a pinned hero over an animated 3D network,
-an oversized marquee, headings that rise out of a mask, a bio that lights up word by word and a pinned horizontal
-gallery of projects. All the content lives in one data file.
-
 <img src="docs/images/scroll.gif" width="600" alt="Scrolling the live site: the pinned hero over the Vanta network background, the scroll-driven marquee, then the About section with counting stats and the word-by-word bio">
 
 <sub>A real recording of the live site, scrolled with a mouse wheel in headless Chrome.</sub>
